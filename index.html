@@ -94,7 +94,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:68px;padding:0 2.5re
 .fc-tag{display:inline-block;background:rgba(91,82,232,0.09);color:var(--p);font-size:0.62rem;font-weight:800;padding:0.12rem 0.55rem;border-radius:50px;margin-top:0.28rem;text-transform:uppercase;letter-spacing:0.5px;}
 
 /* SPOTLIGHT HERO */
-.spotlight-wrap{display:grid;grid-template-columns:1fr 280px;gap:1.5rem;align-items:start;margin-top:1.5rem;}
+.spotlight-wrap{display:grid;grid-template-columns:1fr 260px;gap:1.5rem;align-items:start;margin-top:1.5rem;width:100%;overflow:hidden;}
 .spot-main{position:relative;}
 .spot-browser{background:var(--glass);backdrop-filter:blur(18px);border:1px solid var(--gb);border-radius:var(--r);overflow:hidden;box-shadow:0 16px 60px rgba(91,82,232,0.18);}
 .spot-img-wrap{position:relative;height:420px;overflow:hidden;}
@@ -112,7 +112,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:68px;padding:0 2.5re
 .spot-visit:hover{background:#fff;color:var(--p);}
 
 /* THUMBNAILS */
-.spot-thumbs{display:flex;flex-direction:column;gap:0.8rem;}
+.spot-thumbs{display:flex;flex-direction:column;gap:0.8rem;max-height:500px;overflow-y:auto;}
 .sthumb{display:grid;grid-template-columns:64px 1fr;gap:0.7rem;align-items:center;background:var(--glass);backdrop-filter:blur(12px);border:1.5px solid var(--gb);border-radius:var(--rs);padding:0.7rem;cursor:pointer;transition:all 0.3s;position:relative;overflow:hidden;}
 .sthumb:hover{border-color:rgba(91,82,232,0.4);transform:translateX(-4px);}
 .sthumb.active{border-color:var(--p);background:rgba(91,82,232,0.08);}
@@ -208,8 +208,8 @@ section{padding:88px 2rem;position:relative;z-index:1;}
 
 /* ===== PORTFOLIO ===== */
 .port-sec{background:var(--bg2);}
-.filter-bar{display:flex;gap:0.5rem;flex-wrap:wrap;margin:2.2rem 0 2rem;}
-.fbtn{background:var(--glass);border:1.5px solid var(--gb);color:var(--mid);padding:0.46rem 1.1rem;border-radius:50px;font-size:0.82rem;font-weight:800;cursor:pointer;transition:all 0.25s;backdrop-filter:blur(10px);}
+.filter-bar{display:flex;gap:0.5rem;flex-wrap:wrap;margin:2.2rem 0 2rem;width:100%;}
+.fbtn{background:var(--glass);border:1.5px solid var(--gb);color:var(--mid);padding:0.46rem 1.1rem;border-radius:50px;font-size:0.82rem;font-weight:800;cursor:pointer;transition:all 0.25s;backdrop-filter:blur(10px);white-space:nowrap;}
 .fbtn:hover,.fbtn.active{background:var(--p);color:#fff;border-color:var(--p);}
 .port-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem;}
 .portc{background:var(--glass);backdrop-filter:blur(16px);border:1px solid var(--gb);border-radius:var(--r);overflow:hidden;
@@ -239,21 +239,16 @@ section{padding:88px 2rem;position:relative;z-index:1;}
 .generic-cta:hover{transform:scale(1.04);box-shadow:0 6px 20px rgba(91,82,232,0.4);}
 
 /* ===== PROCESS — Timeline ===== */
-.timeline{position:relative;margin-top:3rem;padding:0 1rem;}
-.timeline::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--p),var(--acc));opacity:0.2;transform:translateX(-50%);}
-.tl-item{display:grid;grid-template-columns:1fr 60px 1fr;gap:0;margin-bottom:3rem;align-items:center;}
-.tl-item:nth-child(even) .tl-left{order:3;}
-.tl-item:nth-child(even) .tl-center{order:2;}
-.tl-item:nth-child(even) .tl-right{order:1;}
-.tl-left,.tl-right{padding:0 2rem;}
-.tl-item:nth-child(odd) .tl-right{display:flex;justify-content:flex-start;}
-.tl-item:nth-child(even) .tl-left{display:flex;justify-content:flex-end;}
-.tl-center{display:flex;align-items:center;justify-content:center;position:relative;z-index:1;}
+.timeline{position:relative;margin-top:3rem;padding:0;}
+.timeline::before{content:'';position:absolute;left:26px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--p),var(--acc));opacity:0.2;}
+.tl-item{display:grid;grid-template-columns:52px 1fr;gap:1.2rem;margin-bottom:2rem;align-items:flex-start;}
+.tl-left{display:none;}
+.tl-right{padding:0;}
+.tl-center{display:flex;align-items:flex-start;justify-content:center;position:relative;z-index:1;padding-top:0.2rem;}
 .tl-dot{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--pd),var(--pl));color:#fff;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(91,82,232,0.35);flex-shrink:0;}
-.tl-card{background:var(--glass);backdrop-filter:blur(16px);border:1.5px solid var(--gb);border-radius:var(--r);padding:1.5rem 1.6rem;max-width:340px;
+.tl-card{background:var(--glass);backdrop-filter:blur(16px);border:1.5px solid var(--gb);border-radius:var(--r);padding:1.5rem 1.6rem;width:100%;display:block!important;
   transition:transform 0.42s cubic-bezier(0.34,1.5,0.64,1),box-shadow 0.42s ease,border-color 0.3s;}
-.tl-card:hover{transform:translateY(-8px) scale(1.03);box-shadow:0 20px 52px rgba(91,82,232,0.16);border-color:rgba(91,82,232,0.38);}
-.tl-card:hover .tl-dot-inner{transform:scale(1.15) rotate(-6deg);}
+.tl-card:hover{transform:translateY(-6px);box-shadow:0 20px 52px rgba(91,82,232,0.16);border-color:rgba(91,82,232,0.38);}
 .tl-day{font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--acc);margin-bottom:0.4rem;}
 .tl-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-bottom:0.45rem;}
 .tl-desc{font-size:0.86rem;color:var(--mid);line-height:1.65;}
@@ -316,7 +311,7 @@ footer{background:linear-gradient(135deg,#16162A,#222248);position:relative;z-in
 .footer-main{max-width:1200px;margin:0 auto;}
 .ftop{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem;padding-top:1rem;}
 .flogo{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:900;background:linear-gradient(135deg,var(--pl),var(--acc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;margin-bottom:0.65rem;letter-spacing:-0.3px;}
-.fdesc{font-size:0.85rem;line-height:1.75;color:rgba(255,255,255,0.55);max-width:250px;margin-bottom:1.2rem;}
+.fdesc{font-size:0.85rem;line-height:1.75;color:rgba(255,255,255,0.82);max-width:250px;margin-bottom:1.2rem;}
 .fsocials{display:flex;gap:0.5rem;}
 .fsoc{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:900;text-decoration:none;color:#fff;transition:transform 0.25s,opacity 0.25s;}
 .fsoc:hover{transform:scale(1.15);opacity:0.9;}
@@ -325,11 +320,11 @@ footer{background:linear-gradient(135deg,#16162A,#222248);position:relative;z-in
 .fsoc-fb{background:#1877F2;}
 .fcol h4{font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:700;color:#fff;margin-bottom:0.88rem;}
 .fcol ul{list-style:none;display:flex;flex-direction:column;gap:0.52rem;}
-.fcol ul a{text-decoration:none;color:rgba(255,255,255,0.52);font-size:0.84rem;font-weight:600;transition:color 0.2s;}
+.fcol ul a{text-decoration:none;color:rgba(255,255,255,0.8);font-size:0.84rem;font-weight:600;transition:color 0.2s;}
 .fcol ul a:hover{color:#fff;}
 .fbot{border-top:1px solid rgba(255,255,255,0.08);padding-top:1.2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.7rem;max-width:1200px;margin:0 auto;}
-.fbot-copy{font-size:0.8rem;color:rgba(255,255,255,0.45);}
-.fbot-love{font-size:0.82rem;color:rgba(255,255,255,0.5);font-style:italic;display:flex;align-items:center;gap:0.3rem;}
+.fbot-copy{font-size:0.8rem;color:rgba(255,255,255,0.75);}
+.fbot-love{font-size:0.82rem;color:rgba(255,255,255,0.78);font-style:italic;display:flex;align-items:center;gap:0.3rem;}
 .heart{display:inline-block;animation:heartbeat 1.4s ease-in-out infinite;}
 @keyframes heartbeat{0%,100%{transform:scale(1);}14%{transform:scale(1.3);}28%{transform:scale(1);}42%{transform:scale(1.2);}70%{transform:scale(1);}}
 
@@ -382,6 +377,38 @@ footer{background:linear-gradient(135deg,#16162A,#222248);position:relative;z-in
 .reveal.visible{opacity:1;transform:translateY(0);}
 .rd1{transition-delay:0.07s;}.rd2{transition-delay:0.14s;}.rd3{transition-delay:0.21s;}.rd4{transition-delay:0.28s;}
 
+
+
+/* SPOT INFO BAR */
+.spot-info{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.2rem;background:var(--glass);border-top:1px solid var(--gb);flex-wrap:wrap;}
+.spot-info-left{}
+.spot-tag{font-size:0.68rem;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--acc);margin-bottom:0.2rem;}
+.spot-name{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:900;color:var(--text);margin-bottom:0.15rem;}
+.spot-meta{font-size:0.8rem;color:var(--mid);font-weight:600;}
+.spot-visit{display:inline-flex;align-items:center;gap:0.4rem;background:linear-gradient(135deg,var(--pd),var(--pl));color:#fff;padding:0.55rem 1.2rem;border-radius:50px;font-size:0.82rem;font-weight:800;text-decoration:none;transition:all 0.3s;white-space:nowrap;flex-shrink:0;}
+.spot-visit:hover{transform:scale(1.04);box-shadow:0 6px 20px rgba(91,82,232,0.4);}
+
+/* EXIT INTENT POPUP */
+.exit-popup{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(22,22,42,0.7);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity 0.35s ease;}
+.exit-popup.show{opacity:1;pointer-events:all;}
+.exit-box{background:#fff;border-radius:24px;padding:2.5rem;max-width:440px;width:90%;text-align:center;position:relative;transform:scale(0.92);transition:transform 0.35s cubic-bezier(0.34,1.4,0.64,1);}
+.exit-popup.show .exit-box{transform:scale(1);}
+.exit-close{position:absolute;top:1rem;right:1rem;background:rgba(91,82,232,0.08);border:none;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:1rem;color:var(--mid);display:flex;align-items:center;justify-content:center;}
+.exit-emoji{font-size:2.5rem;margin-bottom:0.8rem;}
+.exit-title{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--text);margin-bottom:0.5rem;}
+.exit-sub{font-size:0.92rem;color:var(--mid);line-height:1.65;margin-bottom:1.5rem;}
+.exit-wa{display:inline-flex;align-items:center;gap:0.6rem;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;padding:0.85rem 1.8rem;border-radius:50px;font-weight:800;font-size:0.95rem;text-decoration:none;transition:all 0.3s;margin-bottom:0.8rem;width:100%;justify-content:center;}
+.exit-wa:hover{transform:scale(1.03);}
+.exit-skip{font-size:0.8rem;color:var(--light);cursor:pointer;text-decoration:underline;background:none;border:none;}
+
+/* STICKY MOBILE BAR */
+.sticky-bar{display:none!important;}
+.sticky-bar a,.sticky-bar button{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.2rem;padding:0.5rem 0.3rem;border-radius:12px;font-size:0.68rem;font-weight:800;text-decoration:none;border:none;cursor:pointer;transition:all 0.2s;}
+.sb-call{background:rgba(91,82,232,0.09);color:var(--p);}
+.sb-wa{background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;}
+.sb-book{background:linear-gradient(135deg,var(--pd),var(--pl));color:#fff;}
+.sb-icon{font-size:1.1rem;}
+
 /* ===== RESPONSIVE ===== */
 @media(max-width:960px){
   .about-grid{grid-template-columns:1fr;}
@@ -389,13 +416,18 @@ footer{background:linear-gradient(135deg,#16162A,#222248);position:relative;z-in
   .ftop{grid-template-columns:1fr 1fr;}
   .timeline::before{left:26px;}
   .tl-item{grid-template-columns:52px 1fr;gap:1rem;}
-  .tl-item:nth-child(even) .tl-left,.tl-item:nth-child(odd) .tl-right{display:none;}
-  .tl-item:nth-child(even) .tl-center{order:1;}
-  .tl-item:nth-child(even) .tl-right{order:2;display:block;}
+  .tl-left{display:none!important;}
   .tl-center{justify-content:flex-start;}
   .tl-left,.tl-right{padding:0;}
   .tl-card{max-width:100%;}
   .footer-cta-band{flex-direction:column;padding:2rem;}
+  .tl-item{grid-template-columns:52px 1fr;gap:0.8rem;margin-bottom:1.5rem;}
+  .tl-left{display:none!important;}
+  .timeline::before{left:25px;}
+  .tl-dot{width:44px;height:44px;font-size:0.95rem;}
+  .tl-card{padding:1.1rem 1.2rem;}
+  .tl-title{font-size:0.95rem;}
+  .tl-desc{font-size:0.82rem;}
 }
 @media(max-width:768px){
   nav{padding:0 1.2rem;height:62px;}
@@ -425,6 +457,23 @@ footer{background:linear-gradient(135deg,#16162A,#222248);position:relative;z-in
 }
 
 @media(max-width:768px){
+  .nav-tagline{font-size:0.56rem;letter-spacing:1px;}
+  .btn-consult{font-size:0.72rem;padding:0.4rem 0.8rem;}
+  .eyebrow{font-size:0.68rem;gap:0.35rem;display:inline-flex;align-items:center;text-align:left;}
+  .spot-overlay{display:none!important;}
+  .hn-icon{display:none;}
+  .hosting-note{padding:0.9rem 1rem;}
+  .fsub{font-size:0.82rem;padding:0.8rem;display:none;}
+  .fband-btn{font-size:0.72rem;padding:0.5rem 0.8rem;}
+  .btn-consult{display:none!important;}
+  .spotlight-wrap{grid-template-columns:1fr;overflow:hidden;}
+  .spot-main{width:100%;max-width:100%;overflow:hidden;}
+  .spot-browser{width:100%;max-width:100%;}
+  .spot-img-wrap{height:220px;}
+  .spot-thumbs{flex-direction:row;overflow-x:auto;padding-bottom:0.5rem;gap:0.6rem;}
+  .sthumb{min-width:140px;flex-shrink:0;}
+  .btn-call-nav{font-size:0.68rem;padding:0.36rem 0.7rem;}
+  .fbot-love{justify-content:center;
   .spotlight-wrap{grid-template-columns:1fr;}
   .spot-thumbs{flex-direction:row;overflow-x:auto;padding-bottom:0.5rem;}
   .sthumb{min-width:160px;grid-template-columns:50px 1fr;}
@@ -439,6 +488,13 @@ footer{background:linear-gradient(135deg,#16162A,#222248);position:relative;z-in
   .fc-side{margin-bottom:0!important;}
   .promise-strip{flex-direction:column;align-items:center;}
 }
+
+@media(min-width:768px) and (max-width:1024px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .btn-consult{display:inline-flex!important;font-size:0.78rem;padding:0.44rem 0.9rem;}
+  .btn-call-nav{display:none;}
+}
 </style>
 </head>
 <body>
@@ -448,19 +504,19 @@ footer{background:linear-gradient(135deg,#16162A,#222248);position:relative;z-in
 
 <!-- NAV -->
 <nav>
-  <div class="nav-brand">
+  <a href="#home" style="text-decoration:none"><div class="nav-brand">
     <div class="nav-logo">Vinthiya D</div>
     <div class="nav-tagline">Website Design & Development</div>
-  </div>
+  </div></a>
   <ul class="nav-links">
     <li><a href="#about" class="nl">About</a></li>
     <li><a href="#packages" class="nl">Packages</a></li>
-    <li><a href="#portfolio" class="nl">Portfolio</a></li>
+    <li><a href="#portfolio" class="nl">My Work</a></li>
     <li><a href="#process" class="nl">Process</a></li>
     <li><a href="#contact" class="nl">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <a href="tel:+919940667547" class="btn-call-nav">📞 Call Now</a>
+    <a href="tel:+919940667547" class="btn-call-nav">Call Now</a>
     <a href="#contact" class="btn-consult">Book Free Consultation</a>
     <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
   </div>
@@ -470,11 +526,11 @@ footer{background:linear-gradient(135deg,#16162A,#222248);position:relative;z-in
 <div class="mob-menu" id="mobMenu">
   <a href="#about" class="ml nl">About</a>
   <a href="#packages" class="ml nl">Packages</a>
-  <a href="#portfolio" class="ml nl">Portfolio</a>
+  <a href="#portfolio" class="ml nl">My Work</a>
   <a href="#process" class="ml nl">Process</a>
   <a href="#contact" class="ml nl">Contact</a>
   <div class="mob-btns">
-    <a href="tel:+919940667547" class="btn-call-nav">📞 Call Now</a>
+    <a href="tel:+919940667547" class="btn-call-nav">Call Now</a>
     <a href="#contact" class="btn-consult">Book Free Consultation</a>
   </div>
 </div>
@@ -531,12 +587,14 @@ footer{background:linear-gradient(135deg,#16162A,#222248);position:relative;z-in
           </div>
           <div class="spot-img-wrap">
             <img id="spotImg" src="WD1.png" alt="Featured Website">
-            <div class="spot-overlay">
+          </div>
+          <div class="spot-info">
+            <div class="spot-info-left">
               <div class="spot-tag" id="spotTag">Industrial · Premium</div>
               <div class="spot-name" id="spotName">V2H Engineering</div>
               <div class="spot-meta" id="spotMeta">Built in 8 Days · $3,000</div>
-              <a id="spotLink" href="https://www.v2hengineering.com" target="_blank" class="spot-visit">View Live Site →</a>
             </div>
+            <a id="spotLink" href="https://www.v2hengineering.com" target="_blank" class="spot-visit">View Live Site →</a>
           </div>
         </div>
       </div>
@@ -649,12 +707,12 @@ footer{background:linear-gradient(135deg,#16162A,#222248);position:relative;z-in
       <div class="acard reveal">
         <div class="aav">👩‍💻</div>
         <div class="anm">Vinthiya D</div>
-        <div class="arl">Premium Website Architect & Full-Stack Developer</div>
+        <div class="arl">Premium Website Architect & SaaS Product Builder</div>
         <div class="atgs">
           <span class="atg">20 Yrs Experience</span>
           <span class="atg">Hewlett Packard Singapore</span>
           <span class="atg">Manufacturing Expert</span>
-          <span class="atg">Full-Stack Web Architect</span>
+          <span class="atg">SaaS Product Builder</span>
           <span class="atg">AI-Integrated Builds</span>
         </div>
         <div class="aexp">
@@ -671,7 +729,7 @@ footer{background:linear-gradient(135deg,#16162A,#222248);position:relative;z-in
         <div class="apills">
           <div class="apill">🏢 Hewlett Packard Singapore</div>
           <div class="apill">🏭 Manufacturing Ops</div>
-          <div class="apill">⚡ Full-Stack Developer</div>
+          <div class="apill">🚀 SaaS Product Builder</div>
           <div class="apill">🤖 AI-Integrated Builds</div>
         </div>
         <div class="trust-row">
@@ -688,7 +746,7 @@ footer{background:linear-gradient(135deg,#16162A,#222248);position:relative;z-in
 <section class="port-sec" id="portfolio">
   <div class="si">
     <div class="reveal">
-      <span class="slbl">Live Portfolio</span>
+      <span class="slbl">My Work</span>
       <h2 class="stit">Real Websites.<br>Real Businesses.</h2>
       <p class="ssub">Every site below is live, built by me, representing a real client. Filter by your industry and see the quality for yourself.</p>
     </div>
@@ -786,19 +844,17 @@ footer{background:linear-gradient(135deg,#16162A,#222248);position:relative;z-in
       <p class="ssub">A clear, transparent roadmap so you always know exactly what happens next.</p>
     </div>
     <div class="timeline">
-      <div class="tl-item reveal">
-        <div class="tl-left">
+      <div class="tl-item">
+        <div class="tl-center"><div class="tl-dot">01</div></div>
+        <div class="tl-right">
           <div class="tl-card">
             <div class="tl-day">Day 1</div>
             <div class="tl-title">Free Consultation</div>
             <div class="tl-desc">We talk about your business, your buyers, and what the website needs to achieve. No pressure, no commitment. Just clarity.</div>
           </div>
         </div>
-        <div class="tl-center"><div class="tl-dot">01</div></div>
-        <div class="tl-right"></div>
       </div>
-      <div class="tl-item reveal">
-        <div class="tl-left"></div>
+      <div class="tl-item">
         <div class="tl-center"><div class="tl-dot">02</div></div>
         <div class="tl-right">
           <div class="tl-card">
@@ -808,19 +864,17 @@ footer{background:linear-gradient(135deg,#16162A,#222248);position:relative;z-in
           </div>
         </div>
       </div>
-      <div class="tl-item reveal">
-        <div class="tl-left">
+      <div class="tl-item">
+        <div class="tl-center"><div class="tl-dot">03</div></div>
+        <div class="tl-right">
           <div class="tl-card">
             <div class="tl-day">Day 2–11</div>
             <div class="tl-title">I Build It — Fast</div>
             <div class="tl-desc">Once approved, I build your premium website with daily progress updates. You are never left wondering what is happening.</div>
           </div>
         </div>
-        <div class="tl-center"><div class="tl-dot">03</div></div>
-        <div class="tl-right"></div>
       </div>
-      <div class="tl-item reveal">
-        <div class="tl-left"></div>
+      <div class="tl-item">
         <div class="tl-center"><div class="tl-dot">04</div></div>
         <div class="tl-right">
           <div class="tl-card">
@@ -902,7 +956,7 @@ footer{background:linear-gradient(135deg,#16162A,#222248);position:relative;z-in
           <div><div class="cilbl">LinkedIn</div><div class="cival">vinthiya-d-webdesign</div></div>
         </a>
         <a href="#" class="cicard" target="_blank">
-          <div class="ciico ci-ig">📸</div>
+          <div class="ciico ci-ig" style="font-size:0.75rem;font-weight:900;letter-spacing:-0.5px;">IG</div>
           <div><div class="cilbl">Instagram</div><div class="cival">@vinthiyadwebdesign</div></div>
         </a>
         <a href="#" class="cicard" target="_blank">
@@ -951,7 +1005,7 @@ footer{background:linear-gradient(135deg,#16162A,#222248);position:relative;z-in
         <p class="fdesc">Premium Website Architect for Industrial, Manufacturing & B2B Businesses. 20 years IT & Manufacturing expertise. Building world-class websites for USA & global clients.</p>
         <div class="fsocials">
           <a href="https://www.linkedin.com/in/vinthiya-d-webdesign/" class="fsoc fsoc-li" target="_blank">in</a>
-          <a href="#" class="fsoc fsoc-ig" target="_blank">📸</a>
+          <a href="#" class="fsoc fsoc-ig" target="_blank" style="font-size:0.72rem;font-weight:900;letter-spacing:-0.5px;">IG</a>
           <a href="#" class="fsoc fsoc-fb" target="_blank">f</a>
         </div>
       </div>
@@ -986,7 +1040,7 @@ footer{background:linear-gradient(135deg,#16162A,#222248);position:relative;z-in
     </div>
     <div class="fbot">
       <span class="fbot-copy">© 2020 Vinthiya D. All rights reserved.</span>
-      <span class="fbot-love">Made with <span class="heart">💜</span> in Tamil Nadu, India · Serving Clients Worldwide</span>
+      <span class="fbot-love">Made with <span class="heart" style="color:#FF4D6D">❤️</span> in Tamil Nadu, India · Serving Clients Worldwide</span>
     </div>
   </div>
 </footer>
@@ -994,7 +1048,7 @@ footer{background:linear-gradient(135deg,#16162A,#222248);position:relative;z-in
 <!-- FLOATING BUTTONS -->
 <div class="fab-stack">
   <button class="fab fab-top" id="fabTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
-  <a href="tel:+919940667547" class="fab fab-call" title="Call Now">📞</a>
+  <a href="tel:+919940667547" class="fab fab-call" title="Call Now">📲</a>
   <a href="https://wa.me/919940667547" class="fab fab-wa" target="_blank" title="WhatsApp">💬</a>
   <button class="fab fab-chat" id="chatFab" title="Chat">💁‍♀️<div class="fab-pulse"></div></button>
 </div>
@@ -1039,8 +1093,8 @@ function switchSpot(n){
   const s=spots[n];
   const wrap=document.querySelector('.spot-img-wrap');
   const img=document.getElementById('spotImg');
-  const overlay=document.querySelector('.spot-overlay');
-  overlay.classList.remove('show');
+  const info=document.querySelector('.spot-info');
+  if(info)info.style.opacity='0.4';
   wrap.classList.add('switching');
   setTimeout(()=>{
     img.src=s.img;
@@ -1050,7 +1104,7 @@ function switchSpot(n){
     document.getElementById('spotMeta').textContent=s.meta;
     document.getElementById('spotLink').href=s.link;
     wrap.classList.remove('switching');
-    setTimeout(()=>overlay.classList.add('show'),300);
+    if(info){info.style.transition='opacity 0.4s ease';info.style.opacity='1';}
   },350);
   document.querySelectorAll('.sthumb').forEach((t,i)=>t.classList.toggle('active',i===n));
   resetTimer();
@@ -1070,7 +1124,6 @@ document.querySelectorAll('.sthumb').forEach(t=>{
   const fill=document.createElement('div');fill.className='auto-bar-fill';
   bar.appendChild(fill);t.appendChild(bar);
 });
-document.querySelector('.spot-overlay').classList.add('show');
 resetTimer();
 
 // HAMBURGER
@@ -1148,8 +1201,42 @@ function submitForm(){
   setTimeout(()=>s.style.display='none',7000);
 }
 // REVEAL
-const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.1});
+const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.05,rootMargin:"0px 0px -30px 0px"});
 document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+// Force timeline items visible
+document.querySelectorAll('.tl-item').forEach(el=>{el.classList.add('visible');});
+</script>
+
+<!-- EXIT INTENT POPUP -->
+<div class="exit-popup" id="exitPopup">
+  <div class="exit-box">
+    <button class="exit-close" onclick="closeExit()">✕</button>
+    <div class="exit-emoji">👋</div>
+    <div class="exit-title">Wait — Before You Go!</div>
+    <div class="exit-sub">Get a <strong>free visual preview</strong> of what your business website could look like. No payment. No commitment. Just 2 minutes.</div>
+    <a href="https://wa.me/919940667547?text=Hi Vinthiya, I'd like a free website preview before I go" class="exit-wa" target="_blank">💬 Get Free Preview on WhatsApp</a>
+    <br>
+    <button class="exit-skip" onclick="closeExit()">No thanks, I'll pass</button>
+  </div>
+</div>
+
+<!-- STICKY MOBILE BAR -->
+<div class="sticky-bar">
+  <a href="tel:+919940667547" class="sb-call"><span class="sb-icon">📞</span>Call</a>
+  <a href="https://wa.me/919940667547" class="sb-wa" target="_blank"><span class="sb-icon">💬</span>WhatsApp</a>
+  <a href="#contact" class="sb-book"><span class="sb-icon">🚀</span>Book Free</a>
+</div>
+
+<script>
+// EXIT INTENT
+let exitShown=false;
+document.addEventListener('mouseleave',e=>{
+  if(e.clientY<10&&!exitShown){
+    exitShown=true;
+    document.getElementById('exitPopup').classList.add('show');
+  }
+});
+function closeExit(){document.getElementById('exitPopup').classList.remove('show');}
 </script>
 </body>
 </html>
