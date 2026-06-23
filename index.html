@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vinthiya D | Premium Website Architect</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --p:#5B52E8;--pl:#7B74F0;--pd:#3D36C4;
+  --acc:#00C9A7;--navy:#1B2559;
+  --bg:#F6F6FF;--bg2:#EDEDFC;
+  --text:#16162A;--mid:#4A4A72;--light:#8F8FB8;
+  --glass:rgba(255,255,255,0.76);--gb:rgba(91,82,232,0.16);
+  --sh:0 8px 40px rgba(91,82,232,0.12);
+  --r:20px;--rs:12px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Nunito Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;font-size:16px;line-height:1.65;}
+
+/* ORBS */
+.orb{position:fixed;border-radius:50%;filter:blur(110px);opacity:0.11;pointer-events:none;z-index:0;}
+.orb1{width:650px;height:650px;background:var(--p);top:-220px;right:-180px;animation:oF 16s ease-in-out infinite alternate;}
+.orb2{width:480px;height:480px;background:var(--acc);bottom:0;left:-180px;animation:oF 20s ease-in-out infinite alternate-reverse;}
+.orb3{width:320px;height:320px;background:#a78bfa;top:42%;right:0;animation:oF 13s ease-in-out infinite alternate;}
+@keyframes oF{0%{transform:translateY(0)scale(1);}100%{transform:translateY(55px)scale(1.1);}}
+
+/* ===== NAV ===== */
+nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:68px;padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;
+  background:rgba(246,246,255,0.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  border-bottom:2px solid rgba(91,82,232,0.18);
+  transition:box-shadow 0.3s;}
+.nav-brand{display:flex;flex-direction:column;justify-content:center;line-height:1;}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:900;background:linear-gradient(135deg,var(--pd),var(--pl));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-0.3px;}
+.nav-tagline{font-size:0.68rem;font-weight:700;color:var(--light);text-transform:uppercase;letter-spacing:1.5px;margin-top:1px;}
+.nav-links{display:flex;gap:0.1rem;list-style:none;align-items:center;}
+.nav-links a{text-decoration:none;color:var(--mid);font-weight:700;font-size:0.86rem;padding:0.4rem 0.85rem;border-radius:50px;transition:color 0.2s,background 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--p);background:rgba(91,82,232,0.09);}
+.nav-right{display:flex;gap:0.5rem;align-items:center;}
+.btn-call-nav{background:rgba(91,82,232,0.09);color:var(--p);padding:0.46rem 1rem;border-radius:50px;font-weight:800;font-size:0.82rem;text-decoration:none;border:1.5px solid rgba(91,82,232,0.22);transition:all 0.25s;}
+.btn-call-nav:hover{background:var(--p);color:#fff;}
+.btn-consult{background:linear-gradient(135deg,var(--pd),var(--pl));color:#fff;padding:0.46rem 1.1rem;border-radius:50px;font-weight:800;font-size:0.82rem;text-decoration:none;box-shadow:0 4px 16px rgba(91,82,232,0.3);transition:all 0.25s;}
+.btn-consult:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(91,82,232,0.44);}
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;width:36px;height:36px;background:rgba(91,82,232,0.08);border:1.5px solid rgba(91,82,232,0.2);border-radius:10px;cursor:pointer;position:relative;}
+.hamburger span{display:block;width:17px;height:2px;background:var(--p);border-radius:2px;position:absolute;transition:transform 0.32s cubic-bezier(0.23,1,0.32,1),opacity 0.22s ease;}
+.hamburger span:nth-child(1){top:12px;}
+.hamburger span:nth-child(2){top:17px;}
+.hamburger span:nth-child(3){top:22px;}
+.hamburger.open span:nth-child(1){top:17px;transform:rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){top:17px;transform:rotate(-45deg);}
+.mob-menu{position:fixed;top:68px;left:0;right:0;background:rgba(246,246,255,0.98);backdrop-filter:blur(24px);border-bottom:2px solid var(--gb);padding:1.2rem 1.5rem 1.5rem;z-index:1999;flex-direction:column;gap:0.3rem;display:none;opacity:0;transform:translateY(-8px);transition:opacity 0.28s,transform 0.28s;}
+.mob-menu.open{display:flex;opacity:1;transform:translateY(0);}
+.mob-menu a{color:var(--mid);font-weight:700;font-size:1rem;padding:0.62rem 1rem;border-radius:12px;text-decoration:none;transition:all 0.2s;}
+.mob-menu a:hover,.mob-menu a.active{color:var(--p);background:rgba(91,82,232,0.08);}
+.mob-btns{display:flex;gap:0.5rem;padding-top:0.8rem;border-top:1px solid var(--gb);margin-top:0.4rem;flex-wrap:wrap;}
+
+/* ===== HERO A: FLOATING CARDS ===== */
+.hero-cards{min-height:88vh;display:flex;align-items:center;justify-content:center;padding:88px 2rem 44px;position:relative;overflow:hidden;}
+.hc-inner{max-width:1200px;width:100%;position:relative;z-index:1;}
+.hc-label{text-align:center;margin-bottom:2.8rem;}
+.eyebrow{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(91,82,232,0.09);border:1px solid rgba(91,82,232,0.22);padding:0.36rem 1rem;border-radius:50px;font-size:0.76rem;font-weight:800;color:var(--p);letter-spacing:0.6px;text-transform:uppercase;}
+.dot{width:7px;height:7px;background:var(--acc);border-radius:50%;animation:pls 1.6s infinite;}
+@keyframes pls{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.8);opacity:0.5;}}
+.hc-label h2{font-family:'Playfair Display',serif;font-size:clamp(1.55rem,3vw,2.1rem);font-weight:700;color:var(--mid);margin-top:1rem;letter-spacing:-0.2px;}
+.cards-float{display:flex;gap:1.8rem;justify-content:center;align-items:flex-end;flex-wrap:wrap;}
+.fc{background:var(--glass);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--gb);border-radius:var(--r);overflow:hidden;box-shadow:0 12px 48px rgba(91,82,232,0.12);transition:transform 0.4s ease,box-shadow 0.4s ease;flex-shrink:0;}
+.fc:hover{transform:translateY(-10px) scale(1.02)!important;box-shadow:0 24px 65px rgba(91,82,232,0.22);animation-play-state:paused;}
+.fc-main{width:310px;animation:fA 5s ease-in-out infinite alternate;}
+.fc-side{width:230px;animation:fB 6s ease-in-out infinite alternate;}
+.fc-side:last-child{animation:fC 7s ease-in-out infinite alternate;margin-bottom:1rem;}
+.fc-main{margin-bottom:0;}
+.fc-side:first-child{margin-bottom:2rem;}
+@keyframes fA{0%{transform:translateY(0);}100%{transform:translateY(-16px);}}
+@keyframes fB{0%{transform:translateY(0) rotate(-0.8deg);}100%{transform:translateY(-12px) rotate(0.8deg);}}
+@keyframes fC{0%{transform:translateY(-6px) rotate(0.8deg);}100%{transform:translateY(8px) rotate(-0.8deg);}}
+.brow-bar{background:#EEEEFA;padding:0.48rem 0.7rem;display:flex;align-items:center;gap:0.38rem;border-bottom:1px solid rgba(91,82,232,0.09);}
+.bd{width:8px;height:8px;border-radius:50%;}
+.bd1{background:#FF5F57;}.bd2{background:#FEBC2E;}.bd3{background:#28C840;}
+.brow-url{flex:1;background:rgba(91,82,232,0.07);border-radius:50px;padding:0.18rem 0.65rem;font-size:0.65rem;color:var(--p);font-weight:800;margin-left:0.38rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.brow-img{width:100%;display:block;height:155px;object-fit:cover;object-position:top;transition:transform 0.5s ease;}
+.fc:hover .brow-img{transform:scale(1.05);}
+.fc-side .brow-img{height:115px;}
+.brow-fb{height:155px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;}
+.fc-side .brow-fb{height:115px;}
+.fb-s1{background:linear-gradient(135deg,#1A1A2E,#2D2D5E);}
+.fb-s2{background:linear-gradient(135deg,#0A1628,#1A3A5C);}
+.fb-s3{background:linear-gradient(135deg,#0A2A1A,#0D4A2A);}
+.fb-icon{font-size:2rem;}.fb-name{font-size:0.75rem;color:rgba(255,255,255,0.8);font-weight:700;text-align:center;}
+.fc-foot{padding:0.8rem 1rem;background:var(--glass);}
+.fc-title{font-size:0.8rem;font-weight:800;color:var(--text);margin-bottom:0.12rem;}
+.fc-sub{font-size:0.68rem;color:var(--p);font-weight:700;}
+.fc-tag{display:inline-block;background:rgba(91,82,232,0.09);color:var(--p);font-size:0.62rem;font-weight:800;padding:0.12rem 0.55rem;border-radius:50px;margin-top:0.28rem;text-transform:uppercase;letter-spacing:0.5px;}
+
+/* SPOTLIGHT HERO */
+.spotlight-wrap{display:grid;grid-template-columns:1fr 280px;gap:1.5rem;align-items:start;margin-top:1.5rem;}
+.spot-main{position:relative;}
+.spot-browser{background:var(--glass);backdrop-filter:blur(18px);border:1px solid var(--gb);border-radius:var(--r);overflow:hidden;box-shadow:0 16px 60px rgba(91,82,232,0.18);}
+.spot-img-wrap{position:relative;height:420px;overflow:hidden;}
+.spot-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:top;
+  transition:opacity 0.6s ease,transform 0.6s ease;}
+.spot-img-wrap.switching img{opacity:0;transform:scale(1.04);}
+.spot-overlay{position:absolute;bottom:0;left:0;right:0;padding:2rem;
+  background:linear-gradient(to top,rgba(22,22,42,0.92) 0%,transparent 100%);
+  transform:translateY(8px);opacity:0;transition:all 0.5s ease;}
+.spot-img-wrap:hover .spot-overlay,.spot-overlay.show{transform:translateY(0);opacity:1;}
+.spot-tag{font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--acc);margin-bottom:0.4rem;}
+.spot-name{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:0.3rem;}
+.spot-meta{font-size:0.85rem;color:rgba(255,255,255,0.7);margin-bottom:0.8rem;font-weight:600;}
+.spot-visit{display:inline-flex;align-items:center;gap:0.4rem;background:rgba(255,255,255,0.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.25);color:#fff;padding:0.5rem 1.1rem;border-radius:50px;font-size:0.82rem;font-weight:800;text-decoration:none;transition:all 0.3s;}
+.spot-visit:hover{background:#fff;color:var(--p);}
+
+/* THUMBNAILS */
+.spot-thumbs{display:flex;flex-direction:column;gap:0.8rem;}
+.sthumb{display:grid;grid-template-columns:64px 1fr;gap:0.7rem;align-items:center;background:var(--glass);backdrop-filter:blur(12px);border:1.5px solid var(--gb);border-radius:var(--rs);padding:0.7rem;cursor:pointer;transition:all 0.3s;position:relative;overflow:hidden;}
+.sthumb:hover{border-color:rgba(91,82,232,0.4);transform:translateX(-4px);}
+.sthumb.active{border-color:var(--p);background:rgba(91,82,232,0.08);}
+.sthumb.active::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--p),var(--acc));border-radius:3px 0 0 3px;}
+.sthumb img{width:64px;height:44px;object-fit:cover;object-position:top;border-radius:8px;display:block;}
+.sthumb-fb{width:64px;height:44px;border-radius:8px;display:none;align-items:center;justify-content:center;font-size:1.4rem;}
+.sthumb-name{font-size:0.78rem;font-weight:800;color:var(--text);margin-bottom:0.15rem;}
+.sthumb-cat{font-size:0.68rem;color:var(--p);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;}
+.auto-bar{height:2px;background:rgba(91,82,232,0.15);border-radius:2px;margin-top:0.5rem;overflow:hidden;}
+.auto-bar-fill{height:100%;background:linear-gradient(90deg,var(--p),var(--acc));border-radius:2px;width:0%;transition:width 0.1s linear;}
+
+
+
+
+/* ===== HERO B: CTA ===== */
+.hero-cta{padding:50px 2rem 80px;text-align:center;position:relative;z-index:1;}
+.hero-cta-inner{max-width:760px;margin:0 auto;}
+.hero-cta h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,4.4rem);font-weight:900;line-height:1.08;margin-bottom:1rem;letter-spacing:-1.5px;}
+.grad{background:linear-gradient(135deg,var(--pd) 0%,var(--p) 45%,var(--acc) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-sub{font-size:1.08rem;color:var(--mid);line-height:1.78;margin-bottom:1.8rem;max-width:560px;margin-left:auto;margin-right:auto;}
+.hero-stats{display:flex;gap:2.8rem;margin-bottom:2.2rem;justify-content:center;flex-wrap:wrap;}
+.stat-num{font-family:'Playfair Display',serif;font-size:2.3rem;font-weight:900;color:var(--p);display:block;letter-spacing:-1px;}
+.stat-label{font-size:0.68rem;color:var(--light);font-weight:800;text-transform:uppercase;letter-spacing:1.5px;}
+.hero-btns{display:flex;gap:0.85rem;flex-wrap:wrap;justify-content:center;}
+.btn-p{background:linear-gradient(135deg,var(--pd),var(--pl));color:#fff;padding:0.92rem 1.9rem;border-radius:50px;font-weight:800;font-size:0.95rem;text-decoration:none;border:none;cursor:pointer;box-shadow:0 6px 26px rgba(91,82,232,0.34);transition:transform 0.3s ease,box-shadow 0.3s ease;display:inline-flex;align-items:center;gap:0.44rem;}
+.btn-p:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(91,82,232,0.5);}
+.btn-o{background:var(--glass);color:var(--p);padding:0.92rem 1.9rem;border-radius:50px;font-weight:800;font-size:0.95rem;text-decoration:none;border:1.5px solid var(--gb);backdrop-filter:blur(10px);transition:all 0.3s;display:inline-flex;align-items:center;gap:0.44rem;}
+.btn-o:hover{background:var(--p);color:#fff;transform:translateY(-3px);}
+
+/* ===== SECTIONS ===== */
+section{padding:88px 2rem;position:relative;z-index:1;}
+.si{max-width:1200px;margin:0 auto;}
+.slbl{font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:var(--p);margin-bottom:0.7rem;display:block;}
+.stit{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.75rem);font-weight:900;line-height:1.12;margin-bottom:1rem;color:var(--text);letter-spacing:-0.8px;}
+.ssub{font-size:1rem;color:var(--mid);line-height:1.78;max-width:580px;}
+
+/* ===== PACKAGES ===== */
+.pkg-sec{background:var(--bg2);}
+.pkg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem;margin-top:2.8rem;}
+.pkg{background:var(--glass);backdrop-filter:blur(16px);border:1.5px solid var(--gb);border-radius:var(--r);padding:1.65rem;
+  transition:transform 0.48s cubic-bezier(0.34,1.4,0.64,1),box-shadow 0.48s ease,border-color 0.3s;
+  will-change:transform;cursor:default;}
+.pkg:hover{transform:translateY(-13px) scale(1.026);box-shadow:0 28px 68px rgba(91,82,232,0.19);border-color:rgba(91,82,232,0.42);}
+.pkg.feat{background:linear-gradient(148deg,var(--pd),var(--p),var(--pl));border-color:transparent;}
+.pkg.feat:hover{box-shadow:0 28px 68px rgba(91,82,232,0.38);transform:translateY(-15px) scale(1.032);}
+.pbg{display:inline-block;background:rgba(91,82,232,0.11);color:var(--p);font-size:0.67rem;font-weight:800;padding:0.17rem 0.68rem;border-radius:50px;margin-bottom:0.82rem;text-transform:uppercase;letter-spacing:0.8px;}
+.pkg.feat .pbg{background:rgba(255,255,255,0.22);color:#fff;}
+.pnm{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;margin-bottom:0.32rem;}
+.pkg.feat .pnm{color:#fff;}
+.ppr{font-family:'Playfair Display',serif;font-size:1.95rem;font-weight:900;color:var(--p);margin:0.62rem 0 0.15rem;letter-spacing:-1px;}
+.pkg.feat .ppr{color:#fff;}
+.ppr span{font-family:'Nunito Sans',sans-serif;font-size:0.8rem;font-weight:600;color:var(--mid);}
+.pkg.feat .ppr span{color:rgba(255,255,255,0.62);}
+.pdy{font-size:0.76rem;color:var(--light);margin-bottom:0.95rem;font-weight:700;}
+.pkg.feat .pdy{color:rgba(255,255,255,0.62);}
+.pfl{list-style:none;display:flex;flex-direction:column;gap:0.46rem;}
+.pfl li{font-size:0.84rem;color:var(--mid);display:flex;align-items:flex-start;gap:0.42rem;line-height:1.42;}
+.pfl li::before{content:'✓';color:var(--acc);font-weight:900;font-size:0.8rem;flex-shrink:0;margin-top:1px;}
+.pkg.feat .pfl li{color:rgba(255,255,255,0.88);}
+.pkg.feat .pfl li::before{color:rgba(255,255,255,0.62);}
+.pct{display:block;margin-top:1.25rem;text-align:center;padding:0.68rem;border-radius:50px;font-weight:800;font-size:0.84rem;text-decoration:none;border:1.5px solid rgba(91,82,232,0.26);color:var(--p);transition:all 0.28s;}
+.pct:hover{background:var(--p);color:#fff;transform:scale(1.04);}
+.pkg.feat .pct{border-color:rgba(255,255,255,0.3);color:#fff;background:rgba(255,255,255,0.13);}
+.pkg.feat .pct:hover{background:#fff;color:var(--p);}
+/* Promise strip */
+.promise-strip{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;padding:1.3rem 1.5rem;background:rgba(91,82,232,0.06);border-radius:var(--r);border:1px solid var(--gb);}
+.ps-item{display:flex;align-items:center;gap:0.5rem;font-size:0.86rem;font-weight:700;color:var(--mid);}
+.ps-item .ps-icon{font-size:1.1rem;}
+/* Hosting note */
+.hosting-note{margin-top:1.8rem;background:linear-gradient(135deg,rgba(255,180,0,0.08),rgba(255,140,0,0.06));border:2px solid rgba(255,160,0,0.35);border-radius:var(--r);padding:1.2rem 1.6rem;display:flex;align-items:flex-start;gap:1rem;}
+.hn-icon{font-size:1.6rem;flex-shrink:0;}
+.hn-text strong{color:#B45309;font-size:0.95rem;display:block;margin-bottom:0.25rem;}
+.hn-text span{font-size:0.88rem;color:#92400E;line-height:1.6;}
+
+/* ===== ABOUT ===== */
+.about-grid{display:grid;grid-template-columns:1fr 1.35fr;gap:4rem;align-items:center;margin-top:2.8rem;}
+.acard{background:var(--glass);backdrop-filter:blur(18px);border:1px solid var(--gb);border-radius:var(--r);padding:2rem;box-shadow:var(--sh);}
+.aav{width:70px;height:70px;border-radius:15px;background:linear-gradient(135deg,var(--p),var(--acc));display:flex;align-items:center;justify-content:center;font-size:1.9rem;margin-bottom:1rem;}
+.anm{font-family:'Playfair Display',serif;font-size:1.28rem;font-weight:900;margin-bottom:0.22rem;letter-spacing:-0.2px;}
+.arl{font-size:0.8rem;color:var(--p);font-weight:800;margin-bottom:0.95rem;}
+.atgs{display:flex;flex-wrap:wrap;gap:0.38rem;}
+.atg{background:rgba(91,82,232,0.08);color:var(--p);border:1px solid rgba(91,82,232,0.17);padding:0.24rem 0.68rem;border-radius:50px;font-size:0.72rem;font-weight:800;}
+.aexp{display:grid;grid-template-columns:1fr 1fr;gap:0.7rem;margin-top:1.15rem;}
+.aeb{background:rgba(91,82,232,0.06);border-radius:10px;padding:0.78rem;text-align:center;}
+.aen{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:var(--p);}
+.ael{font-size:0.68rem;color:var(--mid);font-weight:800;text-transform:uppercase;letter-spacing:0.4px;}
+.about-text p{font-size:0.97rem;color:var(--mid);line-height:1.82;margin-bottom:0.82rem;}
+.apills{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1rem;}
+.apill{background:var(--glass);border:1px solid var(--gb);padding:0.38rem 0.88rem;border-radius:50px;font-size:0.76rem;font-weight:800;color:var(--mid);}
+/* trust row */
+.trust-row{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:1.2rem;}
+.trust-item{background:rgba(0,201,167,0.08);border:1px solid rgba(0,201,167,0.25);border-radius:50px;padding:0.32rem 0.85rem;font-size:0.76rem;font-weight:800;color:#007A65;}
+
+/* ===== PORTFOLIO ===== */
+.port-sec{background:var(--bg2);}
+.filter-bar{display:flex;gap:0.5rem;flex-wrap:wrap;margin:2.2rem 0 2rem;}
+.fbtn{background:var(--glass);border:1.5px solid var(--gb);color:var(--mid);padding:0.46rem 1.1rem;border-radius:50px;font-size:0.82rem;font-weight:800;cursor:pointer;transition:all 0.25s;backdrop-filter:blur(10px);}
+.fbtn:hover,.fbtn.active{background:var(--p);color:#fff;border-color:var(--p);}
+.port-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem;}
+.portc{background:var(--glass);backdrop-filter:blur(16px);border:1px solid var(--gb);border-radius:var(--r);overflow:hidden;
+  transition:transform 0.4s cubic-bezier(0.34,1.4,0.64,1),box-shadow 0.4s ease;
+  animation:fadeIn 0.4s ease both;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.portc:hover{transform:translateY(-9px) scale(1.014);box-shadow:0 20px 55px rgba(91,82,232,0.17);}
+.portc.hidden{display:none;}
+.pthumb{height:165px;position:relative;overflow:hidden;}
+.pthumb img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform 0.5s ease;display:block;}
+.portc:hover .pthumb img{transform:scale(1.07);}
+.pt-fb{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2.6rem;}
+.pt1{background:linear-gradient(135deg,#1A1A2E,#2D2D5E);}
+.pt2{background:linear-gradient(135deg,#0A1628,#1A3A5C);}
+.pt3{background:linear-gradient(135deg,#0A2A1A,#0D4A2A);}
+.pt4{background:linear-gradient(135deg,#1C1408,#3A2A10);}
+.pt-generic{background:linear-gradient(135deg,var(--pd),var(--p),var(--pl));}
+.pbg2{position:absolute;top:0.7rem;right:0.7rem;background:rgba(255,255,255,0.14);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.2);color:#fff;font-size:0.65rem;font-weight:800;padding:0.16rem 0.58rem;border-radius:50px;}
+.pbdy{padding:1.25rem;}
+.pind{font-size:0.67rem;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--p);margin-bottom:0.32rem;}
+.ptit{font-family:'Playfair Display',serif;font-size:0.98rem;font-weight:700;margin-bottom:0.35rem;}
+.pdsc{font-size:0.83rem;color:var(--mid);line-height:1.6;margin-bottom:0.8rem;min-height:52px;}
+.plnk{font-size:0.81rem;font-weight:800;color:var(--p);text-decoration:none;display:inline-flex;align-items:center;gap:0.28rem;transition:gap 0.22s;}
+.plnk:hover{gap:0.55rem;}
+/* generic card CTA */
+.generic-cta{display:inline-flex;align-items:center;gap:0.5rem;background:linear-gradient(135deg,var(--pd),var(--pl));color:#fff;padding:0.6rem 1.2rem;border-radius:50px;font-weight:800;font-size:0.82rem;text-decoration:none;transition:all 0.3s;}
+.generic-cta:hover{transform:scale(1.04);box-shadow:0 6px 20px rgba(91,82,232,0.4);}
+
+/* ===== PROCESS — Timeline ===== */
+.timeline{position:relative;margin-top:3rem;padding:0 1rem;}
+.timeline::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--p),var(--acc));opacity:0.2;transform:translateX(-50%);}
+.tl-item{display:grid;grid-template-columns:1fr 60px 1fr;gap:0;margin-bottom:3rem;align-items:center;}
+.tl-item:nth-child(even) .tl-left{order:3;}
+.tl-item:nth-child(even) .tl-center{order:2;}
+.tl-item:nth-child(even) .tl-right{order:1;}
+.tl-left,.tl-right{padding:0 2rem;}
+.tl-item:nth-child(odd) .tl-right{display:flex;justify-content:flex-start;}
+.tl-item:nth-child(even) .tl-left{display:flex;justify-content:flex-end;}
+.tl-center{display:flex;align-items:center;justify-content:center;position:relative;z-index:1;}
+.tl-dot{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--pd),var(--pl));color:#fff;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(91,82,232,0.35);flex-shrink:0;}
+.tl-card{background:var(--glass);backdrop-filter:blur(16px);border:1.5px solid var(--gb);border-radius:var(--r);padding:1.5rem 1.6rem;max-width:340px;
+  transition:transform 0.42s cubic-bezier(0.34,1.5,0.64,1),box-shadow 0.42s ease,border-color 0.3s;}
+.tl-card:hover{transform:translateY(-8px) scale(1.03);box-shadow:0 20px 52px rgba(91,82,232,0.16);border-color:rgba(91,82,232,0.38);}
+.tl-card:hover .tl-dot-inner{transform:scale(1.15) rotate(-6deg);}
+.tl-day{font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--acc);margin-bottom:0.4rem;}
+.tl-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-bottom:0.45rem;}
+.tl-desc{font-size:0.86rem;color:var(--mid);line-height:1.65;}
+
+/* ===== CONTACT ===== */
+.contact-sec{background:var(--bg2);}
+.cwrap{display:grid;grid-template-columns:1.3fr 1fr;gap:3.5rem;align-items:start;margin-top:2.8rem;}
+.cform{background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--gb);border-radius:var(--r);padding:2.1rem;box-shadow:var(--sh);transition:box-shadow 0.4s,transform 0.4s;}
+.cform:hover{box-shadow:0 18px 62px rgba(91,82,232,0.16);transform:translateY(-3px);}
+.ctit{font-family:'Playfair Display',serif;font-size:1.38rem;font-weight:900;margin-bottom:0.35rem;letter-spacing:-0.2px;}
+.csub{font-size:0.87rem;color:var(--mid);margin-bottom:1.45rem;line-height:1.62;}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:0.88rem;}
+.fg{display:flex;flex-direction:column;gap:0.28rem;margin-bottom:0.82rem;}
+.fg label{font-size:0.72rem;font-weight:800;color:var(--mid);text-transform:uppercase;letter-spacing:0.7px;}
+.fg input,.fg select,.fg textarea{padding:0.75rem 0.92rem;border:1.5px solid rgba(91,82,232,0.15);border-radius:var(--rs);background:rgba(255,255,255,0.72);font-family:'Nunito Sans',sans-serif;font-size:0.92rem;color:var(--text);transition:border-color 0.25s,box-shadow 0.25s,background 0.25s;outline:none;width:100%;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--p);background:#fff;box-shadow:0 0 0 4px rgba(91,82,232,0.09);}
+.phrow{display:grid;grid-template-columns:132px 1fr;gap:0.42rem;}
+.fg textarea{min-height:102px;resize:vertical;}
+.fsub{width:100%;padding:0.92rem;background:linear-gradient(135deg,var(--pd),var(--pl));color:#fff;border:none;border-radius:50px;font-family:'Playfair Display',serif;font-size:0.96rem;font-weight:700;cursor:pointer;box-shadow:0 5px 20px rgba(91,82,232,0.3);transition:transform 0.35s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.35s;}
+.fsub:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 12px 34px rgba(91,82,232,0.46);}
+.fsub:active{transform:scale(0.98);}
+.fsuc{display:none;background:rgba(0,201,167,0.1);border:1px solid rgba(0,201,167,0.26);border-radius:var(--rs);padding:0.88rem;text-align:center;color:#007A65;font-weight:800;margin-top:0.88rem;font-size:0.9rem;}
+.cinfo{display:flex;flex-direction:column;gap:1rem;}
+.citit{font-family:'Playfair Display',serif;font-size:1.32rem;font-weight:900;margin-bottom:0.18rem;letter-spacing:-0.2px;}
+.cisub{font-size:0.88rem;color:var(--mid);line-height:1.7;margin-bottom:0.35rem;}
+.cicard{background:var(--glass);backdrop-filter:blur(12px);border:1px solid var(--gb);border-radius:var(--rs);padding:1.05rem 1.25rem;display:flex;align-items:center;gap:0.88rem;text-decoration:none;color:inherit;transition:all 0.3s;}
+.cicard:hover{transform:translateX(6px);border-color:rgba(91,82,232,0.36);box-shadow:0 6px 18px rgba(91,82,232,0.1);}
+/* WhatsApp highlight */
+.cicard.wa-highlight{border:2px solid rgba(37,211,102,0.45);animation:waPulse 2.5s ease-in-out infinite;}
+@keyframes waPulse{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,0.2);}50%{box-shadow:0 0 0 8px rgba(37,211,102,0);}}
+.ciico{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.05rem;flex-shrink:0;}
+.ci-wa{background:linear-gradient(135deg,#25D366,#128C7E);}
+.ci-em{background:linear-gradient(135deg,var(--p),var(--pl));}
+.ci-li{background:linear-gradient(135deg,#0077B5,#005885);color:#fff;font-weight:900;font-size:0.8rem;}
+.ci-fb{background:linear-gradient(135deg,#1877F2,#0856C6);color:#fff;font-size:0.75rem;font-weight:900;}
+.ci-ig{background:linear-gradient(135deg,#E1306C,#F77737,#FCAF45);color:#fff;font-size:0.9rem;}
+.cilbl{font-size:0.68rem;font-weight:800;text-transform:uppercase;letter-spacing:0.5px;color:var(--light);}
+.cival{font-size:0.88rem;font-weight:800;}
+.wa-fastest{font-size:0.7rem;background:rgba(37,211,102,0.12);color:#128C7E;font-weight:800;padding:0.12rem 0.5rem;border-radius:50px;margin-top:0.2rem;display:inline-block;}
+.ciloc{background:rgba(91,82,232,0.05);border-radius:var(--rs);padding:1.05rem 1.25rem;}
+.cilocl{font-size:0.7rem;font-weight:800;color:var(--p);margin-bottom:0.32rem;text-transform:uppercase;letter-spacing:0.5px;}
+.cilocv{font-size:0.86rem;color:var(--mid);line-height:1.6;}
+.avail-row{display:flex;flex-direction:column;gap:0.3rem;margin-top:0.5rem;}
+.avail-item{font-size:0.8rem;color:var(--mid);display:flex;align-items:center;gap:0.4rem;}
+.avail-item::before{content:'';width:7px;height:7px;background:var(--acc);border-radius:50%;flex-shrink:0;}
+
+/* ===== FOOTER ===== */
+.footer-wave{display:block;width:100%;line-height:0;position:relative;z-index:1;}
+.footer-wave svg{display:block;width:100%;}
+footer{background:linear-gradient(135deg,#16162A,#222248);position:relative;z-index:1;padding:0 2rem 28px;}
+.footer-cta-band{background:linear-gradient(135deg,var(--pd),var(--p));border-radius:var(--r);padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;margin-bottom:3rem;box-shadow:0 12px 48px rgba(91,82,232,0.35);}
+.fband-left h3{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:#fff;margin-bottom:0.4rem;}
+.fband-left p{font-size:0.92rem;color:rgba(255,255,255,0.75);}
+.fband-right{display:flex;gap:0.8rem;flex-wrap:wrap;}
+.fband-btn{padding:0.8rem 1.6rem;border-radius:50px;font-weight:800;font-size:0.9rem;text-decoration:none;transition:all 0.3s;}
+.fband-btn.primary{background:#fff;color:var(--p);}
+.fband-btn.primary:hover{transform:scale(1.04);box-shadow:0 6px 20px rgba(0,0,0,0.15);}
+.fband-btn.secondary{background:rgba(255,255,255,0.15);color:#fff;border:1.5px solid rgba(255,255,255,0.3);}
+.fband-btn.secondary:hover{background:rgba(255,255,255,0.25);}
+.footer-main{max-width:1200px;margin:0 auto;}
+.ftop{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem;padding-top:1rem;}
+.flogo{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:900;background:linear-gradient(135deg,var(--pl),var(--acc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;margin-bottom:0.65rem;letter-spacing:-0.3px;}
+.fdesc{font-size:0.85rem;line-height:1.75;color:rgba(255,255,255,0.55);max-width:250px;margin-bottom:1.2rem;}
+.fsocials{display:flex;gap:0.5rem;}
+.fsoc{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:900;text-decoration:none;color:#fff;transition:transform 0.25s,opacity 0.25s;}
+.fsoc:hover{transform:scale(1.15);opacity:0.9;}
+.fsoc-li{background:#0077B5;}
+.fsoc-ig{background:linear-gradient(135deg,#E1306C,#F77737);}
+.fsoc-fb{background:#1877F2;}
+.fcol h4{font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:700;color:#fff;margin-bottom:0.88rem;}
+.fcol ul{list-style:none;display:flex;flex-direction:column;gap:0.52rem;}
+.fcol ul a{text-decoration:none;color:rgba(255,255,255,0.52);font-size:0.84rem;font-weight:600;transition:color 0.2s;}
+.fcol ul a:hover{color:#fff;}
+.fbot{border-top:1px solid rgba(255,255,255,0.08);padding-top:1.2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.7rem;max-width:1200px;margin:0 auto;}
+.fbot-copy{font-size:0.8rem;color:rgba(255,255,255,0.45);}
+.fbot-love{font-size:0.82rem;color:rgba(255,255,255,0.5);font-style:italic;display:flex;align-items:center;gap:0.3rem;}
+.heart{display:inline-block;animation:heartbeat 1.4s ease-in-out infinite;}
+@keyframes heartbeat{0%,100%{transform:scale(1);}14%{transform:scale(1.3);}28%{transform:scale(1);}42%{transform:scale(1.2);}70%{transform:scale(1);}}
+
+/* ===== FLOATING BUTTONS ===== */
+.fab-stack{position:fixed;right:1.3rem;bottom:1.4rem;z-index:1600;display:flex;flex-direction:column;gap:0.6rem;align-items:center;}
+.fab{width:48px;height:48px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.15rem;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,0.16);transition:transform 0.32s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.3s;}
+.fab:hover{transform:scale(1.18);}
+.fab-top{background:rgba(255,255,255,0.88);backdrop-filter:blur(10px);border:1.5px solid var(--gb)!important;color:var(--p);font-size:1rem;display:none;}
+.fab-top.show{display:flex;}
+.fab-wa{background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;}
+.fab-call{background:linear-gradient(135deg,var(--pd),var(--p));color:#fff;}
+.fab-chat{background:linear-gradient(135deg,var(--p),var(--pl));color:#fff;position:relative;}
+.fab-pulse{position:absolute;top:1px;right:1px;width:12px;height:12px;background:var(--acc);border-radius:50%;border:2px solid #fff;animation:pls 1.6s infinite;}
+
+/* ===== CHATBOX ===== */
+.chatbox{position:fixed;right:1.3rem;bottom:240px;z-index:1599;width:308px;max-width:calc(100vw - 2.6rem);
+  background:rgba(248,247,255,0.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  border:1px solid var(--gb);border-radius:20px;
+  box-shadow:0 18px 52px rgba(91,82,232,0.17);
+  transform:translateY(14px)scale(0.96);opacity:0;pointer-events:none;
+  transition:transform 0.32s cubic-bezier(0.34,1.3,0.64,1),opacity 0.28s ease;}
+.chatbox.open{transform:translateY(0)scale(1);opacity:1;pointer-events:all;}
+.ch-head{background:linear-gradient(135deg,var(--pd),var(--p));border-radius:20px 20px 0 0;padding:0.95rem 1.15rem;display:flex;align-items:center;gap:0.65rem;}
+.ch-av{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.22);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.ch-nm{color:#fff;font-weight:800;font-size:0.88rem;}
+.ch-st{color:rgba(255,255,255,0.62);font-size:0.68rem;display:flex;align-items:center;gap:0.26rem;}
+.ch-st::before{content:'';width:5px;height:5px;background:var(--acc);border-radius:50%;display:inline-block;}
+.ch-cls{background:rgba(255,255,255,0.16);border:none;color:#fff;width:26px;height:26px;border-radius:8px;cursor:pointer;font-size:0.82rem;margin-left:auto;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.2s;}
+.ch-cls:hover{background:rgba(255,255,255,0.28);}
+.ch-msgs{padding:0.88rem;max-height:215px;overflow-y:auto;display:flex;flex-direction:column;gap:0.62rem;}
+.msg-bot .mb{background:rgba(91,82,232,0.07);border:1px solid rgba(91,82,232,0.11);color:var(--text);border-radius:13px 13px 13px 3px;max-width:90%;}
+.msg-user .mb{background:linear-gradient(135deg,var(--pd),var(--pl));color:#fff;border-radius:13px 13px 3px 13px;max-width:90%;margin-left:auto;}
+.mb{padding:0.62rem 0.82rem;font-size:0.82rem;line-height:1.5;}
+.ch-quick{display:flex;flex-wrap:wrap;gap:0.35rem;padding:0.28rem 0.88rem 0.65rem;}
+.qb{background:rgba(91,82,232,0.08);border:1px solid rgba(91,82,232,0.18);color:var(--p);border-radius:50px;padding:0.3rem 0.76rem;font-size:0.72rem;font-weight:800;cursor:pointer;transition:all 0.22s;}
+.qb:hover{background:var(--p);color:#fff;}
+.ch-inp{display:flex;gap:0.36rem;padding:0.72rem 0.88rem;border-top:1px solid var(--gb);}
+.cinp{flex:1;border:1.5px solid rgba(91,82,232,0.14);border-radius:50px;padding:0.5rem 0.82rem;font-size:0.82rem;outline:none;background:rgba(255,255,255,0.68);font-family:'Nunito Sans',sans-serif;color:var(--text);}
+.cinp:focus{border-color:var(--p);background:#fff;}
+.csnd{background:linear-gradient(135deg,var(--p),var(--pl));border:none;color:#fff;width:33px;height:33px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:0.82rem;flex-shrink:0;transition:transform 0.22s;}
+.csnd:hover{transform:scale(1.12);}
+.tdots{display:flex;gap:3px;padding:0.38rem;}
+.tdots span{width:6px;height:6px;background:var(--p);border-radius:50%;animation:td 1.2s ease-in-out infinite;}
+.tdots span:nth-child(2){animation-delay:0.2s;}
+.tdots span:nth-child(3){animation-delay:0.4s;}
+@keyframes td{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+
+/* ===== REVEAL ===== */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.rd1{transition-delay:0.07s;}.rd2{transition-delay:0.14s;}.rd3{transition-delay:0.21s;}.rd4{transition-delay:0.28s;}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:960px){
+  .about-grid{grid-template-columns:1fr;}
+  .cwrap{grid-template-columns:1fr;}
+  .ftop{grid-template-columns:1fr 1fr;}
+  .timeline::before{left:26px;}
+  .tl-item{grid-template-columns:52px 1fr;gap:1rem;}
+  .tl-item:nth-child(even) .tl-left,.tl-item:nth-child(odd) .tl-right{display:none;}
+  .tl-item:nth-child(even) .tl-center{order:1;}
+  .tl-item:nth-child(even) .tl-right{order:2;display:block;}
+  .tl-center{justify-content:flex-start;}
+  .tl-left,.tl-right{padding:0;}
+  .tl-card{max-width:100%;}
+  .footer-cta-band{flex-direction:column;padding:2rem;}
+}
+@media(max-width:768px){
+  nav{padding:0 1.2rem;height:62px;}
+  .nav-links,.btn-call-nav{display:none;}
+  .hamburger{display:flex;}
+  .mob-menu{top:62px;}
+  .hero-cards{padding:78px 1.2rem 36px;}
+  .hero-cta{padding:36px 1.2rem 60px;}
+  .hero-cta h1{font-size:clamp(2.1rem,9vw,3rem);}
+  .hero-stats{gap:1.3rem;}
+  .hero-btns{flex-direction:column;align-items:center;}
+  .hero-btns a,.hero-btns button{width:100%;max-width:280px;justify-content:center;}
+  .cards-float{gap:0.9rem;}
+  .fc-main{width:260px;}
+  .fc-side{width:175px;}
+  section{padding:58px 1.2rem;}
+  .frow{grid-template-columns:1fr;}
+  .phrow{grid-template-columns:1fr;}
+  .pkg-grid{grid-template-columns:1fr;}
+  .port-grid{grid-template-columns:1fr;}
+  .ftop{grid-template-columns:1fr;}
+  .fbot{flex-direction:column;text-align:center;}
+  .chatbox{right:1rem;bottom:225px;width:calc(100vw - 2rem);}
+  .fab-stack{right:1rem;}
+  .footer-cta-band{padding:1.5rem;}
+  .fband-left h3{font-size:1.3rem;}
+}
+
+@media(max-width:768px){
+  .spotlight-wrap{grid-template-columns:1fr;}
+  .spot-thumbs{flex-direction:row;overflow-x:auto;padding-bottom:0.5rem;}
+  .sthumb{min-width:160px;grid-template-columns:50px 1fr;}
+  .sthumb img{width:50px;height:36px;}
+  .sthumb-fb{width:50px;height:36px;}
+  .spot-img-wrap{height:260px;}
+  .spot-overlay{opacity:1;transform:translateY(0);}
+}
+
+@media(max-width:480px){
+  .cards-float{flex-direction:column;align-items:center;}
+  .fc-side{margin-bottom:0!important;}
+  .promise-strip{flex-direction:column;align-items:center;}
+}
+</style>
+</head>
+<body>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-logo">Vinthiya D</div>
+    <div class="nav-tagline">Website Design & Development</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about" class="nl">About</a></li>
+    <li><a href="#packages" class="nl">Packages</a></li>
+    <li><a href="#portfolio" class="nl">Portfolio</a></li>
+    <li><a href="#process" class="nl">Process</a></li>
+    <li><a href="#contact" class="nl">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="tel:+919940667547" class="btn-call-nav">📞 Call Now</a>
+    <a href="#contact" class="btn-consult">Book Free Consultation</a>
+    <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <a href="#about" class="ml nl">About</a>
+  <a href="#packages" class="ml nl">Packages</a>
+  <a href="#portfolio" class="ml nl">Portfolio</a>
+  <a href="#process" class="ml nl">Process</a>
+  <a href="#contact" class="ml nl">Contact</a>
+  <div class="mob-btns">
+    <a href="tel:+919940667547" class="btn-call-nav">📞 Call Now</a>
+    <a href="#contact" class="btn-consult">Book Free Consultation</a>
+  </div>
+</div>
+
+<!-- HERO A: FLOATING CARDS -->
+<!-- <div class="hero-cards" id="home">
+  <div class="hc-inner">
+    <div class="hc-label reveal">
+      <div class="eyebrow"><span class="dot"></span> 🌍 Serving USA & Global Clients · Remote · Fast Delivery</div>
+      <h2>Here's What I Build for Businesses Like Yours</h2>
+    </div>
+    <div class="cards-float reveal">
+      <div class="fc fc-side">
+        <div class="brow-bar"><div class="bd bd1"></div><div class="bd bd2"></div><div class="bd bd3"></div><div class="brow-url">chennaigtax.github.io/gtax</div></div>
+        <div class="brow-body">
+          <img class="brow-img" src="WD3.png" alt="GTax" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="brow-fb fb-s2" style="display:none"><div class="fb-icon">📊</div><div class="fb-name">G·TAX</div></div>
+        </div>
+        <div class="fc-foot"><div class="fc-title">G·TAX Consultancy</div><div class="fc-sub">$2,000 · 4 Days</div><div class="fc-tag">Professional Services</div></div>
+      </div>
+      <div class="fc fc-main">
+        <div class="brow-bar"><div class="bd bd1"></div><div class="bd bd2"></div><div class="bd bd3"></div><div class="brow-url">v2hengineering.com</div></div>
+        <div class="brow-body">
+          <img class="brow-img" src="WD2.png" alt="V2H Engineering" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="brow-fb fb-s1" style="display:none"><div class="fb-icon">⚙️</div><div class="fb-name">V2H Engineering</div></div>
+        </div>
+        <div class="fc-foot"><div class="fc-title">V2H Engineering</div><div class="fc-sub">$3,000 · 8 Days</div><div class="fc-tag">Industrial · Premium</div></div>
+      </div>
+      <div class="fc fc-side">
+        <div class="brow-bar"><div class="bd bd1"></div><div class="bd bd2"></div><div class="bd bd3"></div><div class="brow-url">SudalaiMadanFarm</div></div>
+        <div class="brow-body">
+          <img class="brow-img" src="WD4.png" alt="Sudalai Madan Farm" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="brow-fb fb-s3" style="display:none"><div class="fb-icon">🌾</div><div class="fb-name">Sudalai Madan Farm</div></div>
+        </div>
+        <div class="fc-foot"><div class="fc-title">Sudalai Madan Farm</div><div class="fc-sub">$2,500 · 6 Days</div><div class="fc-tag">Organic Farm</div></div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!-- HERO A: SPOTLIGHT SHOWCASE -->
+<div class="hero-cards" id="home">
+  <div class="hc-inner">
+    <div class="hc-label reveal">
+      <div class="eyebrow"><span class="dot"></span> 🌍 Serving USA & Global Clients · Remote · Fast Delivery</div>
+      <h2>Here's What I Build for Businesses Like Yours</h2>
+    </div>
+    <div class="spotlight-wrap reveal">
+      <!-- LEFT: Large featured display -->
+      <div class="spot-main">
+        <div class="spot-browser">
+          <div class="brow-bar">
+            <div class="bd bd1"></div><div class="bd bd2"></div><div class="bd bd3"></div>
+            <div class="brow-url" id="spotUrl">v2hengineering.com</div>
+          </div>
+          <div class="spot-img-wrap">
+            <img id="spotImg" src="WD1.png" alt="Featured Website">
+            <div class="spot-overlay">
+              <div class="spot-tag" id="spotTag">Industrial · Premium</div>
+              <div class="spot-name" id="spotName">V2H Engineering</div>
+              <div class="spot-meta" id="spotMeta">Built in 8 Days · $3,000</div>
+              <a id="spotLink" href="https://www.v2hengineering.com" target="_blank" class="spot-visit">View Live Site →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- RIGHT: Thumbnail strip -->
+      <div class="spot-thumbs">
+        <div class="sthumb active" onclick="switchSpot(0)">
+          <img src="WD1.png" alt="V2H Engineering" onerror="this.style.display='none'">
+          <div class="sthumb-fb pt1">⚙️</div>
+          <div class="sthumb-info"><div class="sthumb-name">V2H Engineering</div><div class="sthumb-cat">Industrial</div></div>
+        </div>
+        <div class="sthumb" onclick="switchSpot(1)">
+          <img src="WD2.png" alt="GTax" onerror="this.style.display='none'">
+          <div class="sthumb-fb pt2">📊</div>
+          <div class="sthumb-info"><div class="sthumb-name">G·TAX Consultancy</div><div class="sthumb-cat">Professional Services</div></div>
+        </div>
+        <div class="sthumb" onclick="switchSpot(2)">
+          <img src="WD3.png" alt="Sudalai Madan Farm" onerror="this.style.display='none'">
+          <div class="sthumb-fb pt3">🌾</div>
+          <div class="sthumb-info"><div class="sthumb-name">Sudalai Madan Farm</div><div class="sthumb-cat">Organic Farm</div></div>
+        </div>
+        <div class="sthumb" onclick="switchSpot(3)">
+          <img src="WD4.png" alt="Freeze Dried Foods" onerror="this.style.display='none'">
+          <div class="sthumb-fb pt4">🥗</div>
+          <div class="sthumb-info"><div class="sthumb-name">Freeze-Dried Foods</div><div class="sthumb-cat">Food Industry</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- HERO B: CTA -->
+<div class="hero-cta">
+  <div class="hero-cta-inner reveal">
+    <h1>Your Business Deserves a<br><span class="grad">World-Class Website</span></h1>
+    <p class="hero-sub">Premium websites for industrial, manufacturing, engineering, food, farming & B2B businesses — built to convert visitors into buyers. Delivered in days, not months.</p>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">20+</span><span class="stat-label">Years Experience</span></div>
+      <div class="stat"><span class="stat-num">3</span><span class="stat-label">Days Delivery</span></div>
+      <div class="stat"><span class="stat-num">$1.5K</span><span class="stat-label">Starting Price</span></div>
+      <div class="stat"><span class="stat-num">4+</span><span class="stat-label">Live Websites</span></div>
+    </div>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-p">🚀 Get Free Preview</a>
+      <a href="#portfolio" class="btn-o">👁 View My Work</a>
+      <a href="https://wa.me/919940667547?text=Hi Vinthiya, I'd like a free consultation" class="btn-o" target="_blank">💬 WhatsApp Me</a>
+    </div>
+  </div>
+</div>
+
+<!-- PACKAGES -->
+<section class="pkg-sec" id="packages">
+  <div class="si">
+    <div class="reveal">
+      <span class="slbl">Pricing & Packages</span>
+      <h2 class="stit">Transparent Pricing.<br>Premium Quality.</h2>
+      <p class="ssub">Premium agencies charge $10,000–$25,000 for the same result. You get world-class quality, delivered in days, with complete transparency on every cost.</p>
+    </div>
+    <div class="pkg-grid">
+      <div class="pkg reveal rd1">
+        <div class="pbg">Starter</div><div class="pnm">Starter Professional</div>
+        <div class="ppr">$1,500 <span>USD</span></div><div class="pdy">⚡ Delivered in 3 Days</div>
+        <ul class="pfl"><li>3 Professional Pages</li><li>Contact Form (sends to email)</li><li>Mobile Responsive Design</li><li>Deployed to Live URL</li><li>1 Round of Free Revision</li><li>7 Days Post-launch Support</li></ul>
+        <a href="#contact" class="pct">Get Started →</a>
+      </div>
+      <div class="pkg reveal rd2">
+        <div class="pbg">Popular</div><div class="pnm">Starter + Lead Capture</div>
+        <div class="ppr">$2,000 <span>USD</span></div><div class="pdy">⚡ Delivered in 4 Days</div>
+        <ul class="pfl"><li>3 Professional Pages</li><li>RFQ / Quote Request Form</li><li>Contact Form (sends to email)</li><li>Mobile Responsive Design</li><li>Deployed to Live URL</li><li>1 Round of Free Revision</li></ul>
+        <a href="#contact" class="pct">Get Started →</a>
+      </div>
+      <div class="pkg feat reveal rd3">
+        <div class="pbg">Best Value</div><div class="pnm">Growth + Lead Capture</div>
+        <div class="ppr">$3,000 <span>USD</span></div><div class="pdy">⚡ Delivered in 8 Days</div>
+        <ul class="pfl"><li>5 Professional Pages</li><li>RFQ / Quote Request Form</li><li>Gallery / Products Section</li><li>Contact Form (sends to email)</li><li>Mobile Responsive Design</li><li>Deployed to Live URL</li></ul>
+        <a href="#contact" class="pct">Get Started →</a>
+      </div>
+      <div class="pkg reveal rd4">
+        <div class="pbg">Growth</div><div class="pnm">Growth Website</div>
+        <div class="ppr">$2,500 <span>USD</span></div><div class="pdy">⚡ Delivered in 6 Days</div>
+        <ul class="pfl"><li>5 Professional Pages</li><li>Gallery / Products Section</li><li>Contact Form (sends to email)</li><li>Mobile Responsive Design</li><li>Deployed to Live URL</li><li>1 Round of Free Revision</li></ul>
+        <a href="#contact" class="pct">Get Started →</a>
+      </div>
+      <div class="pkg reveal rd1">
+        <div class="pbg">Premium</div><div class="pnm">Premium Business</div>
+        <div class="ppr">$4,500 <span>USD</span></div><div class="pdy">⚡ Delivered in 12 Days</div>
+        <ul class="pfl"><li>7 Professional Pages</li><li>RFQ Form + Product Catalog</li><li>WhatsApp Chat Button</li><li>Google Maps + SEO Basics</li><li>Mobile Responsive Design</li><li>Deployed to Live URL</li></ul>
+        <a href="#contact" class="pct">Get Started →</a>
+      </div>
+    </div>
+    <!-- Promise strip -->
+    <div class="promise-strip reveal">
+      <div class="ps-item"><span class="ps-icon">🛡️</span> 7 Days Free Post-launch Support — All Plans</div>
+      <div class="ps-item"><span class="ps-icon">🎁</span> Refer a Client = 14 Days Free Updates</div>
+      <div class="ps-item"><span class="ps-icon">✅</span> Deployment to Live URL Included</div>
+    </div>
+    <!-- Hosting note — highlighted -->
+    <div class="hosting-note reveal">
+      <div class="hn-icon">🔔</div>
+      <div class="hn-text">
+        <strong>Hosting is NOT included in any package</strong>
+        <span>Hosting is a separate annual cost (~$50–$100/year) paid directly by you to your hosting provider. I will personally guide you to the best option and help with the full setup — at no extra charge.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="si">
+    <div class="about-grid">
+      <div class="acard reveal">
+        <div class="aav">👩‍💻</div>
+        <div class="anm">Vinthiya D</div>
+        <div class="arl">Premium Website Architect & Full-Stack Developer</div>
+        <div class="atgs">
+          <span class="atg">20 Yrs Experience</span>
+          <span class="atg">Hewlett Packard Singapore</span>
+          <span class="atg">Manufacturing Expert</span>
+          <span class="atg">Full-Stack Web Architect</span>
+          <span class="atg">AI-Integrated Builds</span>
+        </div>
+        <div class="aexp">
+          <div class="aeb"><div class="aen">11Y</div><div class="ael">IT & Software</div></div>
+          <div class="aeb"><div class="aen">9Y</div><div class="ael">Manufacturing</div></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <span class="slbl">About Me</span>
+        <h2 class="stit">I Speak Your Industry's Language</h2>
+        <p>Most web designers build pretty pages. I build websites that understand your buyers — because I have spent 20 years inside the industries I build for.</p>
+        <p>Senior Software Engineer at Hewlett Packard Singapore. 9 years running manufacturing and enterprise operations. Now I bring all of that expertise to your digital presence.</p>
+        <p>When a USA buyer lands on your website, they know within 3 seconds if you are serious. I make sure your answer is yes.</p>
+        <div class="apills">
+          <div class="apill">🏢 Hewlett Packard Singapore</div>
+          <div class="apill">🏭 Manufacturing Ops</div>
+          <div class="apill">⚡ Full-Stack Developer</div>
+          <div class="apill">🤖 AI-Integrated Builds</div>
+        </div>
+        <div class="trust-row">
+          <div class="trust-item">✓ Available 9am–6pm IST</div>
+          <div class="trust-item">✓ Responds within 4 Hours</div>
+          <div class="trust-item">✓ 100% Remote Delivery Worldwide</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="port-sec" id="portfolio">
+  <div class="si">
+    <div class="reveal">
+      <span class="slbl">Live Portfolio</span>
+      <h2 class="stit">Real Websites.<br>Real Businesses.</h2>
+      <p class="ssub">Every site below is live, built by me, representing a real client. Filter by your industry and see the quality for yourself.</p>
+    </div>
+    <div class="filter-bar reveal">
+      <button class="fbtn active" onclick="filterPort('all',this)">All</button>
+      <button class="fbtn" onclick="filterPort('industrial',this)">Industrial</button>
+      <button class="fbtn" onclick="filterPort('farm',this)">Farm & Agriculture</button>
+      <button class="fbtn" onclick="filterPort('food',this)">Food</button>
+      <button class="fbtn" onclick="filterPort('services',this)">Professional Services</button>
+      <button class="fbtn" onclick="filterPort('other',this)">Other Industries</button>
+    </div>
+    <div class="port-grid" id="portGrid">
+      <!-- V2H -->
+      <div class="portc" data-cat="industrial">
+        <div class="pthumb pt1">
+          <img src="WD1.png" alt="V2H Engineering" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="pt-fb" style="display:none">⚙️</div>
+          <div class="pbg2">Industrial</div>
+        </div>
+        <div class="pbdy">
+          <div class="pind">Precision Engineering · Defence & Automotive</div>
+          <div class="ptit">V2H Engineering</div>
+          <div class="pdsc">CNC precision manufacturer supplying HEPF Defence, NLC Mining, Toyota & Hyundai. Hero slider, capabilities, RFQ form.</div>
+          <a href="https://www.v2hengineering.com" class="plnk" target="_blank">View Live Site →</a>
+        </div>
+      </div>
+      <!-- GTax -->
+      <div class="portc" data-cat="services">
+        <div class="pthumb pt2">
+          <img src="WD2.png" alt="GTax" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="pt-fb" style="display:none">📊</div>
+          <div class="pbg2">Professional Services</div>
+        </div>
+        <div class="pbdy">
+          <div class="pind">CA & Tax Consultancy · Chennai</div>
+          <div class="ptit">G·TAX Consultancy</div>
+          <div class="pdsc">AI chatbot, WhatsApp integration, GST, Income Tax, USA Business services. 48hr response guarantee messaging.</div>
+          <a href="https://chennaigtax.github.io/gtax/" class="plnk" target="_blank">View Live Site →</a>
+        </div>
+      </div>
+      <!-- Sudalai Madan -->
+      <div class="portc" data-cat="farm">
+        <div class="pthumb pt3">
+          <img src="WD3.png" alt="Sudalai Madan Farm" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="pt-fb" style="display:none">🌾</div>
+          <div class="pbg2">Farm</div>
+        </div>
+        <div class="pbdy">
+          <div class="pind">Organic Farm · Tuticorin, Tamil Nadu</div>
+          <div class="ptit">Sudalai Madan Organic Farm</div>
+          <div class="pdsc">Video hero, SVG farm map, zero-waste ecosystem wheel, fish pond section, B2C product catalog & AI farm chatbot.</div>
+          <a href="https://vinthiyad.github.io/SudalaiMadanFarm/" class="plnk" target="_blank">View Live Site →</a>
+        </div>
+      </div>
+      <!-- Freeze Dried -->
+      <div class="portc" data-cat="food">
+        <div class="pthumb pt4">
+          <img src="WD4.png" alt="Freeze Dried Foods" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="pt-fb" style="display:none">🥗</div>
+          <div class="pbg2">Food</div>
+        </div>
+        <div class="pbdy">
+          <div class="pind">Food Business Guide · Tamil Nadu</div>
+          <div class="ptit">Freeze-Dried Foods Business Guide</div>
+          <div class="pdsc">Live profit calculators, seasonal sourcing calendars, 10-year growth projections and supplier directories.</div>
+          <a href="https://vinthiyad.github.io/FREEZE-DRIED-FOODS/" class="plnk" target="_blank">View Live Site →</a>
+        </div>
+      </div>
+      <!-- Generic card for "other" -->
+      <div class="portc" data-cat="other">
+        <div class="pthumb pt-generic">
+          <div class="pt-fb" style="font-size:2.5rem;color:#fff;flex-direction:column;gap:0.5rem;display:flex">
+            <span>🌐</span>
+            <span style="font-size:0.85rem;font-weight:800;opacity:0.9;text-align:center;">Your Industry Here</span>
+          </div>
+          <div class="pbg2">Any Industry</div>
+        </div>
+        <div class="pbdy">
+          <div class="pind">Construction · Healthcare · Retail · Any B2B</div>
+          <div class="ptit">Building in Your Industry?</div>
+          <div class="pdsc">I have built across many industries. Don't see your category? I have done similar work. DM me for a custom preview — no commitment.</div>
+          <a href="https://wa.me/919940667547?text=Hi Vinthiya, I need a website for my industry and would like a custom preview" class="generic-cta" target="_blank">💬 DM for Custom Preview</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS — Timeline -->
+<section id="process">
+  <div class="si">
+    <div class="reveal">
+      <span class="slbl">My Process</span>
+      <h2 class="stit">Your Website Journey —<br>From Day One to Launch</h2>
+      <p class="ssub">A clear, transparent roadmap so you always know exactly what happens next.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-left">
+          <div class="tl-card">
+            <div class="tl-day">Day 1</div>
+            <div class="tl-title">Free Consultation</div>
+            <div class="tl-desc">We talk about your business, your buyers, and what the website needs to achieve. No pressure, no commitment. Just clarity.</div>
+          </div>
+        </div>
+        <div class="tl-center"><div class="tl-dot">01</div></div>
+        <div class="tl-right"></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-left"></div>
+        <div class="tl-center"><div class="tl-dot">02</div></div>
+        <div class="tl-right">
+          <div class="tl-card">
+            <div class="tl-day">Day 1–2</div>
+            <div class="tl-title">Free Visual Preview</div>
+            <div class="tl-desc">I send you a visual preview of your website layout before you pay a single dollar. You approve, then we proceed.</div>
+          </div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-left">
+          <div class="tl-card">
+            <div class="tl-day">Day 2–11</div>
+            <div class="tl-title">I Build It — Fast</div>
+            <div class="tl-desc">Once approved, I build your premium website with daily progress updates. You are never left wondering what is happening.</div>
+          </div>
+        </div>
+        <div class="tl-center"><div class="tl-dot">03</div></div>
+        <div class="tl-right"></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-left"></div>
+        <div class="tl-center"><div class="tl-dot">04</div></div>
+        <div class="tl-right">
+          <div class="tl-card">
+            <div class="tl-day">Launch Day</div>
+            <div class="tl-title">Live & Fully Yours</div>
+            <div class="tl-desc">Your website goes live. Full ownership is yours. I guide you on hosting. 7 days of free post-launch support included — all plans.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-sec" id="contact">
+  <div class="si">
+    <div class="reveal">
+      <span class="slbl">Get In Touch</span>
+      <h2 class="stit">Let's Build Your<br>Dream Website</h2>
+    </div>
+    <div class="cwrap">
+      <div class="cform reveal">
+        <div class="ctit">Book Your Free Consultation</div>
+        <div class="csub">No sales pressure. No commitment. Just a conversation about your business and how a great website can bring you more clients.</div>
+        <div class="frow">
+          <div class="fg"><label>Your Name</label><input type="text" id="cf-name" placeholder="John Smith"></div>
+          <div class="fg"><label>Email Address</label><input type="email" id="cf-email" placeholder="john@company.com"></div>
+        </div>
+        <div class="fg">
+          <label>Phone Number</label>
+          <div class="phrow">
+            <select>
+              <option>🇺🇸 +1 USA</option><option>🇨🇦 +1 Canada</option><option>🇬🇧 +44 UK</option>
+              <option>🇦🇺 +61 Australia</option><option selected>🇮🇳 +91 India</option>
+              <option>🇦🇪 +971 UAE</option><option>🇸🇬 +65 Singapore</option><option>🇲🇾 +60 Malaysia</option>
+              <option>🇩🇪 +49 Germany</option><option>🇫🇷 +33 France</option><option>🇯🇵 +81 Japan</option>
+              <option>🇰🇷 +82 Korea</option><option>🇧🇷 +55 Brazil</option><option>🇲🇽 +52 Mexico</option>
+              <option>🇿🇦 +27 S.Africa</option><option>🇳🇬 +234 Nigeria</option><option>🇱🇰 +94 Sri Lanka</option>
+            </select>
+            <input type="tel" placeholder="Your phone number">
+          </div>
+        </div>
+        <div class="fg"><label>Your Industry</label>
+          <select><option value="">-- Select Industry --</option>
+            <option>Precision Engineering / Manufacturing</option><option>Industrial / Heavy Equipment</option>
+            <option>Food & Beverage</option><option>Farm / Agriculture / Organic</option>
+            <option>CA / Tax / Professional Services</option><option>Construction / Real Estate</option>
+            <option>Import / Export / Trading</option><option>Healthcare / Medical</option>
+            <option>Technology / IT</option><option>Other B2B Business</option>
+          </select>
+        </div>
+        <div class="fg"><label>Package Interest</label>
+          <select><option value="">-- Select Package --</option>
+            <option>Package 1 — Starter Professional ($1,500 · 3 Days)</option>
+            <option>Package 2 — Starter + Lead Capture ($2,000 · 4 Days)</option>
+            <option>Package 3 — Growth Website ($2,500 · 6 Days)</option>
+            <option>Package 4 — Growth + Lead Capture ($3,000 · 8 Days)</option>
+            <option>Package 5 — Premium Business ($4,500 · 12 Days)</option>
+            <option>Not Sure — Need Free Consultation</option>
+          </select>
+        </div>
+        <div class="fg"><label>Tell Me About Your Business</label><textarea id="cf-msg" placeholder="What does your business do? What do you want your website to achieve for you?"></textarea></div>
+        <button class="fsub" onclick="submitForm()">🚀 Send & Book Free Consultation</button>
+        <div class="fsuc" id="fsuc">🎉 Thank you! Vinthiya will personally contact you within 24 hours.</div>
+      </div>
+      <div class="cinfo reveal">
+        <div class="citit">Prefer Direct Contact?</div>
+        <div class="cisub">I respond to every message personally — no bots, no assistants.</div>
+        <a href="https://wa.me/919940667547?text=Hi Vinthiya, I'd like to discuss a website for my business" class="cicard wa-highlight" target="_blank">
+          <div class="ciico ci-wa">💬</div>
+          <div><div class="cilbl">WhatsApp</div><div class="cival">+91 99406 67547</div><div class="wa-fastest">⚡ Fastest way to reach me</div></div>
+        </a>
+        <a href="mailto:vinthiyavaira@gmail.com" class="cicard">
+          <div class="ciico ci-em">✉️</div>
+          <div><div class="cilbl">Email</div><div class="cival">vinthiyavaira@gmail.com</div></div>
+        </a>
+        <a href="https://www.linkedin.com/in/vinthiya-d-webdesign/" class="cicard" target="_blank">
+          <div class="ciico ci-li">in</div>
+          <div><div class="cilbl">LinkedIn</div><div class="cival">vinthiya-d-webdesign</div></div>
+        </a>
+        <a href="#" class="cicard" target="_blank">
+          <div class="ciico ci-ig">📸</div>
+          <div><div class="cilbl">Instagram</div><div class="cival">@vinthiyadwebdesign</div></div>
+        </a>
+        <a href="#" class="cicard" target="_blank">
+          <div class="ciico ci-fb">f</div>
+          <div><div class="cilbl">Facebook</div><div class="cival">Vinthiya D Web Design</div></div>
+        </a>
+        <div class="ciloc">
+          <div class="cilocl">📍 Availability</div>
+          <div class="avail-row">
+            <div class="avail-item">Available 9am–6pm IST · Mon–Sat</div>
+            <div class="avail-item">Responds within 4 hours</div>
+            <div class="avail-item">100% Remote · Serving USA & Global Clients</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER WAVE -->
+<div class="footer-wave">
+  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,40 C180,80 360,0 540,40 C720,80 900,0 1080,40 C1260,80 1440,20 1440,40 L1440,80 L0,80 Z" fill="#16162A"/>
+  </svg>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div style="max-width:1200px;margin:0 auto;">
+    <!-- Footer CTA Band -->
+    <div class="footer-cta-band">
+      <div class="fband-left">
+        <h3>Ready to Get a World-Class Website?</h3>
+        <p>Free visual preview · No commitment · Delivered in 3–12 days · Starting at $1,500</p>
+      </div>
+      <div class="fband-right">
+        <a href="#contact" class="fband-btn primary">🚀 Book Free Consultation</a>
+        <a href="https://wa.me/919940667547?text=Hi Vinthiya, I want a free preview of my website" class="fband-btn secondary" target="_blank">💬 WhatsApp Now</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-main">
+    <div class="ftop">
+      <div>
+        <span class="flogo">Vinthiya D</span>
+        <p class="fdesc">Premium Website Architect for Industrial, Manufacturing & B2B Businesses. 20 years IT & Manufacturing expertise. Building world-class websites for USA & global clients.</p>
+        <div class="fsocials">
+          <a href="https://www.linkedin.com/in/vinthiya-d-webdesign/" class="fsoc fsoc-li" target="_blank">in</a>
+          <a href="#" class="fsoc fsoc-ig" target="_blank">📸</a>
+          <a href="#" class="fsoc fsoc-fb" target="_blank">f</a>
+        </div>
+      </div>
+      <div class="fcol">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#packages">Packages & Pricing</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h4>Live Portfolio</h4>
+        <ul>
+          <li><a href="https://www.v2hengineering.com" target="_blank">V2H Engineering</a></li>
+          <li><a href="https://chennaigtax.github.io/gtax/" target="_blank">G·TAX Consultancy</a></li>
+          <li><a href="https://vinthiyad.github.io/SudalaiMadanFarm/" target="_blank">Sudalai Madan Farm</a></li>
+          <li><a href="https://vinthiyad.github.io/FREEZE-DRIED-FOODS/" target="_blank">Freeze-Dried Foods</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="https://wa.me/919940667547" target="_blank">💬 WhatsApp</a></li>
+          <li><a href="mailto:vinthiyavaira@gmail.com">✉️ Email Me</a></li>
+          <li><a href="#contact">📅 Book Consultation</a></li>
+          <li><a href="#packages">💰 View Pricing</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fbot">
+      <span class="fbot-copy">© 2020 Vinthiya D. All rights reserved.</span>
+      <span class="fbot-love">Made with <span class="heart">💜</span> in Tamil Nadu, India · Serving Clients Worldwide</span>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<div class="fab-stack">
+  <button class="fab fab-top" id="fabTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+  <a href="tel:+919940667547" class="fab fab-call" title="Call Now">📞</a>
+  <a href="https://wa.me/919940667547" class="fab fab-wa" target="_blank" title="WhatsApp">💬</a>
+  <button class="fab fab-chat" id="chatFab" title="Chat">💁‍♀️<div class="fab-pulse"></div></button>
+</div>
+
+<!-- CHATBOX -->
+<div class="chatbox" id="chatbox">
+  <div class="ch-head">
+    <div class="ch-av">💁‍♀️</div>
+    <div><div class="ch-nm">Vinthiya's Assistant</div><div class="ch-st">Online · Usually replies instantly</div></div>
+    <button class="ch-cls" id="chatClose">✕</button>
+  </div>
+  <div class="ch-msgs" id="cmsgs">
+    <div class="msg msg-bot"><div class="mb">👋 Hi! Ask me about packages, portfolio, delivery time, or how to get started!</div></div>
+  </div>
+  <div class="ch-quick" id="cquick">
+    <button class="qb" onclick="qa('What are your packages and pricing?')">💰 Pricing</button>
+    <button class="qb" onclick="qa('Show me your portfolio')">👁 Portfolio</button>
+    <button class="qb" onclick="qa('How fast is delivery?')">⚡ Delivery</button>
+    <button class="qb" onclick="qa('Tell me about Vinthiya')">👩‍💻 About</button>
+  </div>
+  <div class="ch-inp">
+    <input class="cinp" id="cinp" placeholder="Type your question..." onkeypress="if(event.key==='Enter')sm()">
+    <button class="csnd" onclick="sm()">➤</button>
+  </div>
+</div>
+
+<script>
+
+// SPOTLIGHT SWITCHER
+const spots=[
+  {img:'WD1.png',url:'v2hengineering.com',name:'V2H Engineering',tag:'Industrial · Premium',meta:'Built in 8 Days · $3,000',link:'https://www.v2hengineering.com'},
+  {img:'WD2.png',url:'chennaigtax.github.io/gtax',name:'G·TAX Consultancy',tag:'Professional Services',meta:'Built in 4 Days · $2,000',link:'https://chennaigtax.github.io/gtax/'},
+  {img:'WD3.png',url:'SudalaiMadanFarm',name:'Sudalai Madan Farm',tag:'Organic Farm',meta:'Built in 6 Days · $2,500',link:'https://vinthiyad.github.io/SudalaiMadanFarm/'},
+  {img:'WD4.png',url:'Freeze-Dried-Foods',name:'Freeze-Dried Foods',tag:'Food Industry',meta:'Built in 5 Days · $2,000',link:'https://vinthiyad.github.io/FREEZE-DRIED-FOODS/'}
+];
+let curSpot=0,spotTimer;
+const DURATION=5000;
+
+function switchSpot(n){
+  if(n===curSpot)return;
+  curSpot=n;
+  const s=spots[n];
+  const wrap=document.querySelector('.spot-img-wrap');
+  const img=document.getElementById('spotImg');
+  const overlay=document.querySelector('.spot-overlay');
+  overlay.classList.remove('show');
+  wrap.classList.add('switching');
+  setTimeout(()=>{
+    img.src=s.img;
+    document.getElementById('spotUrl').textContent=s.url;
+    document.getElementById('spotName').textContent=s.name;
+    document.getElementById('spotTag').textContent=s.tag;
+    document.getElementById('spotMeta').textContent=s.meta;
+    document.getElementById('spotLink').href=s.link;
+    wrap.classList.remove('switching');
+    setTimeout(()=>overlay.classList.add('show'),300);
+  },350);
+  document.querySelectorAll('.sthumb').forEach((t,i)=>t.classList.toggle('active',i===n));
+  resetTimer();
+}
+
+function resetTimer(){
+  clearInterval(spotTimer);
+  document.querySelectorAll('.auto-bar-fill').forEach(b=>{b.style.transition='none';b.style.width='0%';});
+  spotTimer=setInterval(()=>switchSpot((curSpot+1)%spots.length),DURATION);
+  const activeFill=document.querySelectorAll('.auto-bar-fill')[curSpot];
+  if(activeFill){setTimeout(()=>{activeFill.style.transition=`width ${DURATION}ms linear`;activeFill.style.width='100%';},50);}
+}
+
+// Add auto progress bars to thumbs
+document.querySelectorAll('.sthumb').forEach(t=>{
+  const bar=document.createElement('div');bar.className='auto-bar';
+  const fill=document.createElement('div');fill.className='auto-bar-fill';
+  bar.appendChild(fill);t.appendChild(bar);
+});
+document.querySelector('.spot-overlay').classList.add('show');
+resetTimer();
+
+// HAMBURGER
+const ham=document.getElementById('ham'),mob=document.getElementById('mobMenu');
+ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open');});
+document.querySelectorAll('.ml').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open');}));
+
+// ACTIVE NAV + SCROLL
+window.addEventListener('scroll',()=>{
+  let cur='';
+  document.querySelectorAll('section[id]').forEach(s=>{if(window.scrollY>=s.offsetTop-130)cur=s.id;});
+  document.querySelectorAll('.nl').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+  document.getElementById('fabTop').classList.toggle('show',window.scrollY>400);
+},{passive:true});
+
+// PORTFOLIO FILTER
+function filterPort(cat,btn){
+  document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.portc').forEach(c=>{
+    const show=cat==='all'||c.dataset.cat===cat;
+    c.classList.toggle('hidden',!show);
+    if(show){c.style.animation='none';c.offsetHeight;c.style.animation='fadeIn 0.4s ease both';}
+  });
+}
+
+// CHATBOT
+const cf=document.getElementById('chatFab'),cb=document.getElementById('chatbox');
+document.getElementById('chatClose').addEventListener('click',()=>cb.classList.remove('open'));
+cf.addEventListener('click',()=>cb.classList.toggle('open'));
+const R={
+  price:"5 packages:\n\n💼 Starter — $1,500 · 3 pages · 3 days\n💼 Starter+RFQ — $2,000 · 4 days\n💼 Growth — $2,500 · 5 pages · 6 days\n💼 Growth+RFQ — $3,000 · 8 days\n💼 Premium — $4,500 · 7 pages · 12 days\n\n✅ Deployment included · 🎁 7 days free support · Refer a client = 14 days free updates!",
+  portfolio:"Live websites:\n\n⚙️ v2hengineering.com\n📊 chennaigtax.github.io/gtax\n🌾 vinthiyad.github.io/SudalaiMadanFarm\n🥗 vinthiyad.github.io/FREEZE-DRIED-FOODS\n\nDon't see your industry? DM Vinthiya for a custom preview!",
+  delivery:"⚡ Delivery times:\n3-page → 3 days\n3-page+RFQ → 4 days\n5-page → 6 days\n5-page+RFQ → 8 days\n7-page premium → 12 days\n\nFree visual preview before you pay anything!",
+  about:"Vinthiya D — 20 years experience. 11 years IT at Hewlett Packard Singapore + 9 years manufacturing operations. Full-Stack Web Architect with AI-integrated builds. Speaks your industry's language! 🏆",
+  contact:"Contact Vinthiya:\n\n💬 WhatsApp: +91 99406 67547 (fastest!)\n✉️ vinthiyavaira@gmail.com\n💼 linkedin.com/in/vinthiya-d-webdesign\n\nShe responds personally within 4 hours!",
+  def:"For personalized help, WhatsApp Vinthiya at +91 99406 67547 — she replies personally within 4 hours! 😊"
+};
+function gr(m){
+  m=m.toLowerCase();
+  if(/price|cost|package|fee|how much/.test(m))return R.price;
+  if(/portfolio|work|example|site|show/.test(m))return R.portfolio;
+  if(/fast|deliver|day|quick|time/.test(m))return R.delivery;
+  if(/vinthiya|about|experience|who/.test(m))return R.about;
+  if(/contact|whatsapp|email|phone|reach/.test(m))return R.contact;
+  return R.def;
+}
+function am(t,isBot){
+  const m=document.getElementById('cmsgs'),d=document.createElement('div');
+  d.className=`msg ${isBot?'msg-bot':'msg-user'}`;
+  d.innerHTML=`<div class="mb">${t.replace(/\n/g,'<br>')}</div>`;
+  m.appendChild(d);m.scrollTop=m.scrollHeight;
+}
+function st(){
+  const m=document.getElementById('cmsgs'),d=document.createElement('div');
+  d.className='msg msg-bot';d.id='tid';
+  d.innerHTML='<div class="mb"><div class="tdots"><span></span><span></span><span></span></div></div>';
+  m.appendChild(d);m.scrollTop=m.scrollHeight;return d;
+}
+function sm(){
+  const i=document.getElementById('cinp'),t=i.value.trim();if(!t)return;
+  am(t,false);i.value='';
+  document.getElementById('cquick').style.display='none';
+  const ty=st();setTimeout(()=>{ty.remove();am(gr(t),true);},650+Math.random()*300);
+}
+function qa(q){
+  am(q,false);document.getElementById('cquick').style.display='none';
+  const ty=st();setTimeout(()=>{ty.remove();am(gr(q),true);},650);
+}
+// FORM
+function submitForm(){
+  const n=document.getElementById('cf-name').value.trim(),e=document.getElementById('cf-email').value.trim();
+  if(!n||!e){alert('Please fill your name and email.');return;}
+  const s=document.getElementById('fsuc');s.style.display='block';
+  setTimeout(()=>s.style.display='none',7000);
+}
+// REVEAL
+const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>
